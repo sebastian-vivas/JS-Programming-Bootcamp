@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>03.05 Form with Checkbox</title>
+
+    <link rel="stylesheet" href="css/free-ebook.css" />
+  </head>
+
+  <body>
+    <div>
+      <!-- <h1>JS 01 Variables</h1> -->
+      <h1>&nbsp;Get our FREE eBook!</h1>
+
+      <form>
+        <input
+          type="text"
+          id="firstName"
+          placeholder="First Name (required)"
+          required
+        />
+
+        <input
+          type="email"
+          id="email"
+          placeholder="Email (required)"
+          required
+        />
+
+        <select id="hear-about">
+          <option value="choose">How did you hear about us?</option>
+          <option value="search">Google search</option>
+          <option value="friend">Friends / Family</option>
+          <option value="colleague">Colleague / Coworker</option>
+          <option value="social">Social Media</option>
+          <option value="email">Email</option>
+          <option value="news">Blog or News Report</option>
+          <option value="other">Other</option>
+        </select>
+
+        <input type="checkbox" id="subscribe" checked />
+        <label for="subscribe">Subscribe me to newsletter!</label>
+
+        <!-- <button>sock it to me!</button> -->
+        <button>Sock it to me!</button>
+
+        <h4 id="feedback"></h4>
+      </form>
+    </div>
+
+    <!-- START .js -->
+    <!-- <script src="js/03.05-DOM-Get-Free-eBook-Form-START.js"></script> -->
+
+    <!-- PROG .js -->
+    <!-- <script src="js/03.05-DOM-Get-Free-eBook-Form-PROG.js"></script> -->
+
+    <!-- FINAL .js -->
+    <script src="js/03.05-DOM-Get-Free-eBook-Form-FINAL.js"></script>
+  </body>
+</html>

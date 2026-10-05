@@ -1,0 +1,58 @@
+/*
+
+  Javascript is a Synchronous language HOWEVER with NODE and Webbrower API
+  It became Asynchronous!!!
+
+  What is Asynchronous and Synchronous?
+
+  The code below you can see that one is executed after the other and there.
+*/
+
+function first() {
+  return "abc123";
+}
+
+function second() {
+  return "456efg";
+}
+first();
+second();
+
+/*
+  Now look at this, althought runNowPrint2SecondsLater is executed first it didn't console.log right away. It took two seconds
+*/
+
+function runNowPrint2SecondsLater() {
+  setTimeout(function () {
+    console.log("I ran first but I printing 2 seconds later");
+  }, 2000);
+}
+
+function runNowPrintRightAway() {
+  console.log("printing....");
+}
+
+runNowPrint2SecondsLater();
+runNowPrintRightAway();
+
+function firstCall() {
+  setTimeout(function () {
+    console.log("first called but last to print");
+  }, 3000);
+}
+
+function secondCall() {
+  setTimeout(function () {
+    console.log("second called but second to print");
+  }, 2000);
+}
+
+function thirdCall() {
+  setTimeout(function () {
+    console.log("third called but first to print");
+  }, 1000);
+}
+
+firstCall();
+secondCall();
+thirdCall();

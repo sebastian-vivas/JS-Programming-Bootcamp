@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lab 02.03</title>
+    
+    <link href="../../../css/basic-pg-console.log.css" rel="stylesheet">
+
+    <style>
+
+        .container {
+            background-color: #fff;
+            width: 750px;
+            margin: 20px auto;
+        }
+
+        img {
+            width: 90px; 
+            float:left; 
+            padding-right:30px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+
+        <div>
+            <img src="../../../images/lab-testtube.jpg">
+            <h1>JS Lab 02.03 <br>Ternary Expressions <br>Switch Case Break</h1>   
+            <h3>See script tag in this html file for lab assignment.</h3>
+            <h3>As you work, check the console for output and <span style="color:red">red error messages</span>. 
+            <h3>Please check Lab Solution file only after giving the Lab your best effort!</h3>
+        </div>
+
+    </div>
+    
+    <script>
+
+   // 02.03 LAB
+
+    // 1. Convert the following if-else into a ternary:
+    let msg = "";
+
+    if ('plums' < 'pears') {
+        msg = 'plums b4 pears';
+    } else {
+        msg = 'pears b4 plums';
+    }
+
+    console.log(msg);
+
+    // 2. Convert the following if-else into a ternary:
+
+    let x = 12;
+    let y = 6;
+    let z = 0;
+
+    if (x <= y) {
+        z = x / y;
+    } else {
+        z = y / x;
+    }
+
+    console.log(z);
+
+    // 3. Convert the following ternary into if-else:
+
+    let n = 8;
+
+    n == 8 ? console.log("equal") : console.log("not equal");
+
+
+    // switch case break
+    /*
+    An alternative to if-else if-else logic is a switch-case-break statement. 
+    Unlike a ternary, a switch-case-break is used for evaluating multiple 
+    conditions, which would otherwise require "else if" logic.
+
+    Convert if-else if-else to switch-case-break by following these guidelines:
+
+    - the evaluated variable is written just once
+    - there is only one set of curly braces
+    - there is only one set of parentheses
+    - there are no equality operators (==, ===)
+
+    Other differences: switch, case and break replace if-else keywords
+
+    - switch instead of if to start
+    - case instead of else if
+    - default instead of else
+
+    Given this if else:
+    */
+
+    let moneySymbol = "JPY";
+    let currency = "";
+
+    if (moneySymbol === "USD") {
+        currency = "US Dollar";
+    } else if (moneySymbol === "JPY") {
+        currency = "Japanese Yen";
+    } else if (moneySymbol === "GBP") {
+        currency = "British Pound";
+    } else {
+        currency = "Unknown";
+    }
+
+    switch (moneySymbol) {
+        case "USD":
+        currency = "US dollar";
+        break;
+        case "JPY":
+        currency = "Japanese Yen";
+        break;
+        case "GBP":
+        currency = "British Pounds";
+        break;
+        default:
+        currency = "Unknown";
+        break;
+    }   
+
+    // 4. Convert the following if-else to switch-case-break:
+
+    let country = "Ghana";
+    let continent = "";
+
+    if (country === "Canada") {
+        continent = "North America";
+    } else if (country === "China") {
+        continent = "Asia";
+    } else if (country === "Ghana") {
+        continent = "Africa";
+    } else if (country === "Bolivia") {
+        continent = "South America";
+    }  else if (country === "France") {
+        continent = "Europe";
+    } else {
+        continent = "Australia";
+    }
+    
+//  END 02.03 LAB
+
+//  SEE: 02.03 LAB SOLUTION 
+        
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,68 @@
+body {
+  background-color: #fff;
+  font-family: sans-serif;
+  line-height: 2em;
+  font-size: 1.1em;
+  color: #000;
+}
+
+h2 {
+  font-size: 1.25rem;
+  line-height: 1.75;
+}
+
+.container {
+  position: relative;
+  background-color: #fff;
+  color: #000;
+  width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  min-height: 40vh;
+}
+
+#key-box,
+#rand-pin-box {
+  position: absolute;
+  top: 10px;
+  left: 0px;
+  font-size: 1.25rem;
+  padding: 10px;
+  width: 100px;
+  height: 50px;
+  margin: 10px;
+  text-align: center;
+  font-weight: bold;
+  line-height: 1.5rem;
+  text-align: center;
+}
+
+#rand-pin-box {
+  left: 600px;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+#space-ship {
+  position: absolute;
+  bottom: -40px;
+  left: 500px;
+  width: 256px;
+  height: 256px;
+}
+
+.dark-mode {
+  background-color: #000;
+  color: #fff;
+}
+
+.light-mode {
+  background-color: #fff;
+  color: #000;
+}
+
+p {
+  text-align: left;
+  margin-left: 20px;
+}

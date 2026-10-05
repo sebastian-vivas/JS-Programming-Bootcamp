@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic ID Test</title>
+
+    <style>
+      .my-parag {
+        width: 400px;
+        font-size: 1.5rem;
+        color: purple;
+        padding: 2rem;
+        background-color: #dda;
+        margin: 2rem auto;
+        cursor: pointer;
+      }
+
+      button {
+        font-size: 1.25rem;
+        padding: 0.5rem 1.5rem;
+        display: inline-block;
+        margin: 1rem auto;
+        cursor: pointer;
+      }
+
+      div {
+        margin: 0 auto;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Report Hover Time</h1>
+      <button>Report Hover Time</button>
+    </div>
+
+    <p>
+      This p tag has no attributes, but we will use JavaScript to dynamically
+      assign the p tag an id of "parag1" and a class of "my-parag".
+    </p>
+
+    <p id="my-parag">
+      This p tag has no class but it does have an id. We will use JS to replace
+      the id with a new, dynamic id, "parag2". We do this so that all p-tags
+      have consistent, consecutively numbered id's.
+    </p>
+
+    <p class="special-p">
+      This p tag already the "special-p" class, but no id. We will assign the
+      dynamic id "parag3" in JS.
+    </p>
+
+    <!-- START.js -->
+    <!-- <script src="js/08.02-Timing-User-Hover-START.js"></script> -->
+
+    <!-- PROG.js -->
+    <!-- <script src="js/08.02-Timing-User-Hover-PROG.js"></script> -->
+
+    <!-- FINAL.js -->
+    <script src="js/08.02-Timing-User-Hover-FINAL.js"></script>
+  </body>
+</html>

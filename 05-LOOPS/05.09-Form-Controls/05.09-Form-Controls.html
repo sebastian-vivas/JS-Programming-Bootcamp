@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Controls</title>
+  </head>
+
+  <style>
+    .slidecontainer {
+      width: 50%; /* Width of the outside container */
+      margin: 30px auto;
+      padding: 50px;
+      background-color: #575;
+      border-radius: 25px;
+      text-align: center;
+    }
+
+    /* The slider itself */
+    .slider {
+      -webkit-appearance: none; /* Override default CSS styles */
+      appearance: none;
+      width: 50%; /* Full-width */
+      height: 25px; /* Specified height */
+      border-radius: 15px;
+      border: 1px solid #888;
+      background: #d3d3d3; /* Grey background */
+      outline: none; /* Remove outline */
+      opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+      -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
+      transition: opacity 0.2s;
+    }
+
+    /* Mouse-over effects */
+    .slider:hover {
+      opacity: 1; /* Fully shown on mouse-over */
+    }
+
+    /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none; /* Override default look */
+      appearance: none;
+      width: 30px; /* Set a specific slider handle width */
+      height: 30px; /* Slider handle height */
+      border-radius: 15px;
+      /* background: #04AA6D;  Green background */
+      background-image: radial-gradient(white, green, forestgreen);
+      border: 1px solid rgb(10, 53, 10);
+      cursor: pointer; /* Cursor on hover */
+    }
+
+    .slider::-moz-range-thumb {
+      width: 25px; /* Set a specific slider handle width */
+      height: 25px; /* Slider handle height */
+      background: #04aa6d; /* Green background */
+      cursor: pointer; /* Cursor on hover */
+    }
+
+    h2,
+    h1 {
+      font-family: sans-serif;
+      margin-bottom: 1rem;
+      color: #fff;
+      text-align: center;
+    }
+
+    .container {
+      width: 70%;
+      margin: 50px auto;
+      background-color: #a76;
+      min-height: 50vh;
+      padding: 20px;
+      border-radius: 20px;
+    }
+
+    .cols {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* display: inline-block; */
+      margin: 30px;
+      background-color: #459;
+      color: #fff;
+      padding: 30px;
+      border-radius: 30px;
+      height: 200px;
+      float: left;
+      min-width: 200px;
+      font-family: sans-serif;
+      text-align: center;
+      font-weight: bold;
+      font-size: 24px;
+    }
+  </style>
+
+  <body>
+    <div class="container">
+      <h1>Form Controls</h1>
+
+      <form id="form-1" name="form-1" method="get" action="#">
+        <div class="slidecontainer cols">
+          <h2>Slide the Slider!</h2>
+          <input
+            type="range"
+            id="slidr"
+            min="1"
+            max="100"
+            value="50"
+            class="slider"
+          />
+        </div>
+
+        <div class="cols" id="output">output</div>
+      </form>
+    </div>
+
+    <script>
+      const slidr = document.getElementById("slidr");
+      const outpt = document.getElementById("output");
+      outpt.textContent = slider.value;
+
+      slidr.addEventListener("change", slide);
+
+      function slide() {
+        outpt.textContent = slidr.value;
+      }
+    </script>
+  </body>
+</html>

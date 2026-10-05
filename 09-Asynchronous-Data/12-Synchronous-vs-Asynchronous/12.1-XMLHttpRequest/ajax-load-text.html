@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title>AJAX Load Text</title>
+
+    <style>
+      body {
+        background-color: lightcoral;
+        font-size: 1.25rem;
+        font-family: sans-serif;
+      }
+
+      #container {
+        width: 600px;
+        margin: 0 auto;
+        background-color: azure;
+        padding: 2rem;
+        border: 3px solid cornflowerblue;
+        text-align: center;
+        min-height: 400px;
+      }
+
+      #myText {
+        width: 500px;
+        margin: 0 auto;
+        background-color: beige;
+        padding: 2rem;
+        border: 3px solid brown;
+        min-height: 250px;
+      }
+
+      button {
+        padding: 10px;
+        font-size: 1.5rem;
+        margin: 20px auto;
+        width: 300px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="container">
+      <h1>AJAX Load Text</h1>
+
+      <button onclick="loadText()">AJAX LOAD TEXT</button>
+
+      <div id="myText"></div>
+    </div>
+
+    <script>
+      // AJAX LOAD TEXT
+      function loadText() {
+        // 1.) instantiate an AJAX Obj
+        const xhr = new XMLHttpRequest();
+
+        // 4.) respond to server side events
+        xhr.onreadystatechange = function () {
+          // 5.) if data is loaded..
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            // 6.) do something with loaded data
+            document.getElementById("myText").innerHTML = xhr.responseText;
+          } // end if
+        }; // xhr.onreadystatechange
+
+        // 2.) open a server connection
+        xhr.open("GET", "my-text.txt", true);
+
+        // 3.) send for the data
+        xhr.send();
+      } // end function loadText()
+    </script>
+  </body>
+</html>

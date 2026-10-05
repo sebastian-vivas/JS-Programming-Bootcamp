@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Chinese Zodiac Animals</title>
+    <!--    <link href="css/zodiac.css" type="text/css">-->
+
+    <style>
+      /* @charset "UTF-8"; */
+      /* CSS Document */
+      body {
+        background-color: #600507;
+      }
+
+      #slideshow {
+        width: 1250px;
+        background-color: #a02323;
+        padding: 25px;
+        height: 635px;
+        margin: 2em auto;
+        border-radius: 10px;
+        border: 3px solid #aaa;
+      }
+
+      #thumbsDiv {
+        position: relative;
+        width: 700px;
+        background-color: #fff;
+        background-image: url("images/janice-w-bunny-600x261.png");
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: 90% auto;
+        padding: 25px;
+        height: 540px;
+        float: left;
+        border-radius: 10px;
+        margin-right: 25px;
+        border: 3px solid #aaa;
+      }
+
+      #bigPicDiv {
+        width: 400px;
+        background-color: white;
+        height: 540px;
+        padding: 25px;
+        float: right;
+        border-radius: 10px;
+        border: 3px solid #aaa;
+        font-size: 1.5rem;
+        font-weight: bold;
+        font-family: sans-serif;
+        text-align: center;
+      }
+
+      #bigPicDiv img {
+        width: 100%;
+      }
+
+      #thumbsDiv img {
+        width: 12%;
+        border: 3px solid #aaa;
+        box-shadow: 5px 5px 5px #888;
+        border-radius: 10px;
+        margin: 10px;
+        cursor: pointer;
+      }
+
+      #thumbsDiv img:hover {
+        filter: invert();
+      }
+
+      /* CSS for the absolute position div that holds a Chinese character image */
+      #charDiv {
+        position: absolute;
+        display: none;
+        background-color: white;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 162px;
+        width: 250px;
+        left: 102px;
+        top: 402px;
+      }
+
+      button {
+        font-size: 1.5rem;
+        padding: 5px;
+        width: 200px;
+        height: 50px;
+        color: white;
+        float: left;
+        background-color: darkblue;
+        border-radius: 7px;
+        float: left;
+        margin: 5px 15px;
+        cursor: pointer;
+      }
+
+      #scoreDiv {
+        height: 90px;
+        width: 400px;
+        color: beige;
+        font-size: 1.25rem;
+        margin-top: 10px;
+        font-weight: bold;
+        font-family: sans-serif;
+        float: right;
+        text-align: right;
+        display: none; /* hide the score box div on page load */
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="slideshow">
+      <div id="bigPicDiv"></div>
+
+      <div id="thumbsDiv">
+        <div id="charDiv"></div>
+      </div>
+
+      <footer>
+        <button id="backBtn">Go Back</button>
+        <div id="scoreDiv"></div>
+        <button id="quizBtn"></button>
+      </footer>
+    </div>
+    <!--close id="slideshow"-->
+
+    <script>
+      // JavaScript Document
+      let animalsOriginal = [
+        { eng: "chicken", chi: "ji", pin: "ji&#772", year: 2017 },
+        { eng: "cow", chi: "niu", pin: "niu&#769;", year: 2009 },
+        { eng: "dog", chi: "gou", pin: "gou&#780;", year: 2018 },
+        { eng: "dragon", chi: "long", pin: "lo&#769;ng", year: 2012 },
+        { eng: "goat", chi: "yang", pin: "ya&#769;ng", year: 2015 },
+        { eng: "horse", chi: "ma", pin: "ma&#780;", year: 2014 },
+        { eng: "monkey", chi: "hou", pin: "ho&#769;uzi", year: 2016 },
+        { eng: "pig", chi: "zhu", pin: "zhu&#772;", year: 2019 },
+        { eng: "rabbit", chi: "tu", pin: "tu&#768;zi", year: 2011 },
+        { eng: "rat", chi: "shu", pin: "la&#780;oshu&#780;", year: 2008 },
+        { eng: "snake", chi: "she", pin: "she&#769;", year: 2013 },
+        { eng: "tiger", chi: "hu", pin: "la&#780;ohu&#780;", year: 2010 },
+      ];
+
+      let animals = [];
+      const slideshow = document.getElementById("slideshow");
+      const bigPicDiv = document.getElementById("bigPicDiv");
+      const thumbsDiv = document.getElementById("thumbsDiv");
+      const footer = document.querySelector("footer");
+      const quizBtn = document.getElementById("quizBtn");
+      quizBtn.addEventListener("click", toggleQuizMode);
+      quizBtn.innerHTML = "QUIZ ME";
+      quizBtn.style.width = "200px";
+
+      const backBtn = document.getElementById("backBtn");
+      backBtn.addEventListener("click", goBack);
+      backBtn.innerHTML = "GO BACK";
+      backBtn.style.width = "200px";
+
+      const scoreDiv = document.getElementById("scoreDiv"); // div that displays score
+      const charDiv = document.getElementById("charDiv"); // div to holds chin char
+
+      let isQuiz = false; // by default, application is NOT in "Quiz Mode"
+      let randNum = 0; // in Quiz Mode, sounds are played randomly
+      // vars for keeping track of total clicks, raw score (correct answers) and avg score
+      let clicks = 0; // tracks total thumb clicks
+      let score = 0; // tracks total correct thumb clicks
+      let avg = 0; // tracks scoring average (pct of correct thumb clicks)
+      let pct = 0; // for pct based on avg
+      let scoreReport = "";
+      let animalsTemp = [];
+      const sound = new Audio();
+      const inputYearBox = document.createElement("input");
+      inputYearBox.addEventListener("focus", function () {
+        this.value = "";
+      });
+      inputYearBox.addEventListener("keydown", onKeyDownInputBox);
+      inputYearBox.value = "YEAR";
+      inputYearBox.style.cssText =
+        "margin:10px; width:100px; font-size:1.5rem; padding:5px; text-align:center; color:#888; font-weight:bold; float:left";
+      footer.appendChild(inputYearBox);
+
+      let wheelInterval;
+
+      // put spin wheel in bigPicDiv
+      const bigPic = new Image();
+      bigPic.src = "images/zodiac-animal-wheel.png";
+      bigPicDiv.appendChild(bigPic);
+
+      wheelInterval = setInterval(spinWheel, 40); // call spinWheel() every 40ms
+
+      // rotates bigPic 1deg
+      function spinWheel() {
+        bigPic.style.transform += "rotate(1deg)";
+      } // end spinWheel()
+
+      function goBack() {
+        // alert('back');
+        window.history.back();
+        // window.open("https://www.haciendacode.com/beta");
+      }
+
+      function renderThumbnails() {
+        animals = animalsOriginal.slice(); // copy the originals over to a game-play array that we can splice from without deleting elements from the original
+
+        thumbsDiv.innerHTML = "";
+        quizBtn.innerHTML = "QUIZ ME";
+        scoreReport = "";
+
+        for (let i = 0; i < animals.length; i++) {
+          let thumbPic = new Image();
+          thumbPic.src = `images/animals/${animals[i].eng}.jpg`;
+          thumbPic.addEventListener("click", evalQuizOrNoQuiz);
+          thumbPic.indx = i;
+
+          // loop thru prop keys in animals[i] obj
+          for (key in animals[i]) {
+            // key = eng, chi, pin, year
+            thumbPic[key] = animals[i][key]; // assign each key as dynamic property
+          } // end for(key in animals[i])
+
+          thumbsDiv.appendChild(thumbPic);
+        } // end for(var i = 0; i < animals.length; i++)
+      } // function renderThumbnails()
+
+      function evalQuizOrNoQuiz() {
+        // runs when user clicks an animal
+
+        if (!isQuiz) {
+          // quiz is not in progress, so swap animal
+          swapAnimal(event); // pass the event as argument, so we know which animal
+        } else {
+          // quiz IS in progress, so clicking animal was answer to hearing sound
+          evalAnswer(event);
+        }
+      }
+
+      function swapAnimal(e) {
+        clearInterval(wheelInterval); // stop setInterval
+        bigPic.src = e.target.src;
+        bigPic.style.transform = "rotate(0deg)";
+        bigPicDiv.innerHTML = "";
+        bigPicDiv.appendChild(bigPic);
+        bigPicDiv.innerHTML += `${e.target.eng} - ${e.target.pin} <br/>`;
+        sound.src = `audio/${e.target.eng}.mp3`;
+        sound.play();
+
+        // display chinese character
+        charDiv.style.display = "block";
+        charDiv.style.backgroundImage = `url(images/chats/char-${e.target.chi}.jpg)`;
+
+        generateYears(event); // pass event to func
+      } // end swapAnimal()
+
+      function generateYears(e) {
+        // receive event from swapAnimals func
+
+        // e.target.year = year of the clicked animal
+        let startYear = e.target.year - 228;
+        let endYear = e.target.year + 120;
+        let years = "";
+
+        for (let i = startYear; i <= endYear; i += 12) {
+          years += `${i} `;
+        }
+
+        years = '<p style="font-size:1rem">' + years + "</p>";
+
+        bigPicDiv.innerHTML += years;
+      } // end generateYears(e)
+
+      let searchYear = 0; // for storing the year entered by the user
+      let yearDiff = 0; // for storing the diff between year entered and animal year
+
+      function onKeyDownInputBox(e) {
+        if (e.keyCode == 13) {
+          // if user hit enter (keycode = 13) in input box
+
+          searchYear = e.target.value; // get the value from input box
+
+          for (let i = 0; i < animals.length; i++) {
+            // set the year difference as the search year minus reference year
+            // Math.abs() turns any negative result to positive
+            yearDiff = Math.abs(searchYear - animals[i].year);
+
+            // if no remainder when dividing yearDiff by 12
+            // them yearDiff differs from reference year by a multiple of 12, so is same animal
+            if (yearDiff % 12 == 0) {
+              // we have our animal, so call other func
+
+              // arg for target animal and the search year entered by the user
+              showSearchYearAnimal(i, searchYear);
+            } // if
+          } // for
+        } // if
+      } // function onKeyDownInputBox(e)
+
+      // indx is the index of the animal that lines up with the search year (off by multiple of 12)
+      function showSearchYearAnimal(indx, searchYr) {
+        clearInterval(wheelInterval); // stop setInterval
+
+        // display the search year animal
+        bigPic.src = `images/animals/${animals[indx].eng}.jpg`;
+        bigPic.style.transform = "rotate(0deg)";
+        bigPicDiv.innerHTML = "";
+        bigPicDiv.appendChild(bigPic);
+        bigPicDiv.innerHTML += `${animals[indx].eng} - ${animals[indx].pin} <br/>`;
+
+        // play the sound for the search year animal
+        sound.src = `audio/${animals[indx].eng}.mp3`;
+        sound.play();
+
+        // display chinese character
+        charDiv.style.display = "block";
+        charDiv.style.backgroundImage = `url(images/chars/char-${animals[indx].chi}.jpg)`;
+
+        // calculate range of years, w search animal year in red in middle of randge
+        let startYear = animals[indx].year - yearDiff * 2;
+        let endYear = animals[indx].year + yearDiff;
+        let years = "";
+
+        for (let i = startYear; i <= endYear; i += 12) {
+          if (i == searchYr) {
+            years += `<span style="color:red; font-weight:bold">${i} </span>`;
+          } else {
+            years += `${i} `;
+          }
+        } // for(let i = startYear; i <= endYear; i+=12)
+
+        bigPicDiv.innerHTML += '<p style="font-size:1rem">' + years + "</p>";
+      } // end showSearchYearAnimal(indx, searchYr)
+
+      function toggleQuizMode() {
+        // runs when user clicks button
+
+        if (quizBtn.innerHTML == "RESET") {
+          isQuiz = false;
+          quizBtn.innerHTML = "QUIZ ME";
+          charDiv.style.display = "none";
+          charDiv.style.backgroundImage = "none";
+          inputYearBox.style.display = "block";
+          scoreDiv.style.display = "none";
+          bigPicDiv.innerHTML = "";
+          bigPic.src = "images/zodiac-animal-wheel.png";
+          bigPicDiv.appendChild(bigPic);
+          wheelInterval = setInterval(spinWheel, 40); // call spinWheel() every 40ms
+          clicks = 0;
+          score = 0;
+          avg = 0;
+          pct = 0;
+          renderThumbnails();
+        }
+
+        isQuiz = !isQuiz; // toggle Boolean to change from quiz mode to non-quiz mode
+
+        if (isQuiz) {
+          // if just entered quiz mode
+
+          quizBtn.innerHTML = "STOP QUIZ"; // change what the button says
+          bigPicDiv.innerHTML = "";
+          bigPic.src = "images/zodiac-animal-wheel.png";
+          inputYearBox.style.display = "none";
+          bigPicDiv.appendChild(bigPic);
+          charDiv.style.display = "block";
+          scoreDiv.innerHTML += "Clicks: 0 &nbsp; Score: 0  &nbsp; Avg: 0";
+          charDiv.style.backgroundImage = "";
+          charDiv.innerHTML =
+            '<h3 align="center" style="padding:10px; font-family:sans-serif; line-height:24px; color: #111"><em>LISTEN TO ME SAY AN ANIMAL NAME IN CHINESE! THEN CLICK ON THAT ANIMAL TO SCORE A POINT!</em></h3>';
+          playRandomSound(); // we just entered quiz mode, so initiate the quiz!
+        } else {
+          // we just left quiz mode
+
+          quizBtn.innerHTML = "QUIZ ME";
+          inputYearBox.style.display = "block";
+          scoreDiv.style.display = "none"; // hide the score box
+        }
+      } // end toggleQuizMode()
+
+      function playRandomSound() {
+        // runs when user clicks QUIZ ME button
+
+        randNum = Math.floor(Math.random() * animals.length); // random int from 0-array length
+        sound.pause(); // stop any sound that may be playing already
+        sound.src = `audio/${animals[randNum].chi}.mp3`; // set src of random sound
+        sound.play(); // play the random MP3 file
+      } // end function toggleQuiz()
+
+      function evalAnswer(e) {
+        clicks++; // each answer counts as a click, right or wrong
+        charDiv.style.backgroundColor = "white"; // feedback box for answer
+        charDiv.style.backgroundImage = "none";
+        scoreDiv.style.display = "block";
+
+        // if clicked animal == random sound animal, we have a correct answer
+        if (e.target.eng == animals[randNum].eng) {
+          // output Good Job to the bigPic div, since the correct thumb was clicked
+          slideshow.style.backgroundColor = "green";
+          thumbsDiv.removeChild(e.target); // remove thumb from the div
+          animals.splice(randNum, 1); // remove thumb from array, so as not to repeat
+          score++; // answer was correct so increment score by one
+          avg = score / clicks; // calculate score avg
+          avg.toFixed(3); // round avg score to 2 decimal points
+
+          // output the Good Job message since the user clicked the correct thumb
+          charDiv.innerHTML =
+            '<h2 align="center" style="padding:10px; font-family:sans-serif; line-height:24px; color: #111"><em><br/>GREAT!<br/>KEEP GOING!</em></h2>';
+
+          // concatenate a score report and output it to the score div
+          scoreReport =
+            "Clicks: " +
+            clicks +
+            " &nbsp; Score: " +
+            score +
+            " &nbsp; Avg: " +
+            avg.toFixed(3);
+          scoreDiv.innerHTML = scoreReport;
+
+          // if there are still any animals to do
+          if (animals.length > 0) {
+            playRandomSound(); // serve up next randomq quiz Q: play another sound
+          } else {
+            // game over!
+
+            sound.pause();
+            pct = Math.round(avg * 100);
+            thumbsDiv.innerHTML =
+              '<h1 style="padding:10px; font-family:sans-serif; line-height:24px; color: #111">GAME OVER!</h1><h2>' +
+              scoreReport +
+              " &nbsp;  &nbsp; " +
+              pct +
+              "%</h2>";
+            quizBtn.innerHTML = "RESET";
+
+            // grades and feedback based on pct
+            if (pct == 100) {
+              thumbsDiv.innerHTML +=
+                '<br/><h2 style="padding:10px; font-family:sans-serif; color:darkgreen">PERFECTION! NOT A SINGLE MISTAKE! GRADE: A+</h2>';
+            } else if (pct >= 90) {
+              thumbsDiv.innerHTML +=
+                '<br/><h2 style="padding:10px; font-family:sans-serif; color:darkgreen">EXCELLENT! YOU NAILED IT! GRADE: A</h2>';
+            } else if (pct >= 85) {
+              thumbsDiv.innerHTML +=
+                '<br/><h2 style="padding:10px; font-family:sans-serif; color:blue">VEEERY GOOD! GRADE: B+</h2>';
+            } else if (pct >= 80) {
+              thumbsDiv.innerHTML +=
+                '<br/><h2 style="padding:10px; font-family:sans-serif; color:blue">GOOD JOB! GRADE: B</h2>';
+            } else if (pct >= 75) {
+              thumbsDiv.innerHTML +=
+                '<br/><h2 style="padding:10px; font-family:sans-serif; color:blue">NOT TOO SHABBY, BUT YOU CAN DO BETTER! GRADE: C+</h2>';
+            } else if (pct >= 70) {
+              thumbsDiv.innerHTML +=
+                '<br/><h2 style="padding:10px; font-family:sans-serif; color:orange">OKAY, NOT BAD! BUT TRY AGAIN! GRADE: C</h2>';
+            } else if (pct >= 65) {
+              thumbsDiv.innerHTML +=
+                '<br/><h2 style="padding:10px; font-family:sans-serif; color:orange">KINDA MEH.. I KNOW YOU CAN DO BETTER THAN THAT! GRADE: D</h2>';
+            } else if (pct >= 50) {
+              thumbsDiv.innerHTML +=
+                '<br/><h2 style="padding:10px; font-family:sans-serif; color:red">SOOO.. YOU NEED TO STUDY THE ANIMALS MORE BEFORE TRYING AGAIN. GRADE: F</h2>';
+            } else {
+              thumbsDiv.innerHTML +=
+                '<br/><h2 style="padding:10px; font-family:sans-serif; color:red">BUNNY SAYS BLEECH! NOT EVEN HALF RIGHT! REFRESH THE BROWSER BEFORE SOMEONE SEES THAT SCORE. GRADE: F-</h2>';
+            } // end if-else grades based on pct
+          } // end if-else quiz still going on or quiz over, all animals finished
+        } else {
+          // if user clicked incorrect thumb pic
+
+          // output the Sorry message since the user clicked the wrong thumb
+          charDiv.innerHTML =
+            '<h2 align="center" style="padding:10px; font-family:sans-serif; line-height:24px; color: #111"><em><br/>OOPS!<br/>TRY AGAIN!</em></h2>';
+          slideshow.style.backgroundColor = "red";
+          // replay the sound so the user can try again
+          sound.src = "audio/" + animals[randNum].chi + ".mp3";
+          sound.play();
+
+          // raw score has not gone up after another click, so avg score goes down
+          avg = score / clicks; // calculate score avg
+          // concatenate a score report and output it to the score div
+          scoreReport =
+            "Clicks: " +
+            clicks +
+            " &nbsp; Score: " +
+            score +
+            " &nbsp; Avg: " +
+            avg.toFixed(3);
+          scoreBox.innerHTML = scoreReport;
+        } // end if-else
+      } // end function evalAnswer(e)
+
+      renderThumbnails(); // kickstart the game
+    </script>
+  </body>
+</html>

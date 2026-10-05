@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Lab 01.02 Solution</title>
+
+    <link href="../../../css/basic-pg-console.log.css" rel="stylesheet" />
+
+    <style>
+      body {
+        background-color: #555;
+        color: #555;
+        font-family: sans-serif;
+        text-align: center;
+      }
+
+      .container {
+        margin: 50px auto;
+        padding: 30px;
+        border-radius: 10px;
+        border: 3px solid #999;
+        width: 650px;
+        height: 65vh;
+        background-color: #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <!-- <img src="../../../images/lab-testtube.jpg"> -->
+        <h1>
+          JS Lab 01.02 Solution<br />
+          NaN, Number() <br />
+          null, not defined
+        </h1>
+
+        <h3>
+          Please check your Lab work against this Solution file <br />only after
+          having given the Lab your best effort!
+        </h3>
+      </div>
+    </div>
+
+    <script>
+      /* LAB 01.02 - SOLUTION */
+
+      // Assign values to the provided variables and use typeof() to log output that matches the comment:
+
+      // on your own:
+      var msg = "Hello World";
+      console.log(msg, typeof msg); // Hello World! string
+
+      var total = 314;
+      console.log(total, typeof total); // 314 number
+
+      var isFresh = true;
+      console.log(isFresh, typeof isFresh); // true boolean
+
+      var price = 29.95;
+      console.log("price: $", price, typeof price); // price: $ 29.95 number
+
+      var player1;
+      console.log(player1, typeof player1); // undefined 'undefined'
+
+      var restaurntBill = 80;
+      var groupon = "$10";
+      var pleasePay = restaurantBill - groupon;
+      console.log(pleasePay, typeof pleasePay); // NaN 'number'
+
+      // Use the Number() method so that the console.log output changes from NaN to matching the comment.
+
+      // on your own:
+      var x = "55";
+      var y = "33";
+      var z = Number(x) - Number(y);
+      console.log(z); // 22
+
+      var x = "55";
+      var y = "33";
+      var z = Number(x) + Number(y);
+      console.log(z); // 88
+
+      var x = "55";
+      var y = 5;
+      var z = Number(x) / y;
+      console.log(z); // 11
+
+      var x = 55;
+      var y = "44";
+      var z = x + y;
+      console.log(z); // 5544
+
+      // message 1: Sally lives in New York City.
+      let msg1;
+      let name = "Sally";
+      let city = "New York City";
+      msg1 = name + " lives in " + city + ".";
+      console.log(msg1);
+
+      // message 2: Freddy went to France for 6 months.
+      let msg2;
+      let fName = "Freddy";
+      let country = "France";
+      let months = 6;
+      msg2 = fName + " went to " + country + " for " + months + " months.";
+      console.log(msg2);
+
+      // message 3: My Bunny had a baby carrot for breakfast.
+      let msg3;
+      let pet = "Bunny";
+      let veg = "baby carrot";
+      let meal = "breakfast";
+      msg3 = "My " + pet + " had a " + veg + " for " + meal + ".";
+      console.log(msg3);
+
+      /* END 01.02 LAB SOLUTION 
+
+NEXT: LESSON 01.03 */
+    </script>
+  </body>
+</html>

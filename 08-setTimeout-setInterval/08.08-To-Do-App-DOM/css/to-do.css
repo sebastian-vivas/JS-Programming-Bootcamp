@@ -1,0 +1,26 @@
+.todo-ul {
+  list-style-type: none;
+}
+
+.todo-li {
+  margin: 10px 10px;
+}
+
+.li-span {
+  display: inline-block;
+  width: 100px;
+}
+
+.delete-todo-li {
+  background-color: red;
+  margin-left: 50px;
+}
+
+.done-todo-li {
+  background-color: yellow;
+  margin-left: 50px;
+}
+
+.done-crossed-line {
+  text-decoration: line-through;
+}

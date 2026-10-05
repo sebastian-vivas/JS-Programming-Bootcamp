@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lab 02.04</title>
+    
+    <link href="../../../css/basic-pg-console.log.css" rel="stylesheet">
+
+    <style>
+
+        .container {
+            background-color: #fff;
+            width: 750px;
+            margin: 20px auto;
+        }
+
+        img {
+            width: 90px; 
+            float:left; 
+            padding-right:30px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+
+        <div>
+            <img src="../../../images/lab-testtube.jpg">
+            <h1>JS Lab 02.04 <br>Date Object</h1>   
+            <h3>See script tag in this html file for lab assignment.</h3>
+            <h3>As you work, check the console for output and <span style="color:red">red error messages</span>. 
+            <h3>Please check Lab Solution file only after giving the Lab your best effort!</h3>
+        </div>
+
+    </div>
+    
+    <script>
+
+   // 02.04 LAB
+
+//    1. Continuing where we left off with the "timely greeting", add to the logic so that:
+// - if the hour is between midnight and 2 AM, the greeting is "Good Evening"
+// - if the hour is between 2-4 AM, greeting is "Hey, Night Owl!"
+// - all other greeting times remain the same
+
+    let dateTime = new Date();
+    let hr = dateTime.getHours();
+    let greeting = 'Good ';
+    
+    if(hr < 12) {
+        greeting += "Morning!";
+    } else if(hr < 18) {
+        greeting += " Afternoon!";
+    } else {
+        greeting += 'Evening!';
+    }
+
+    console.log(greeting);
+
+// 2. Test the output by hard-coding **hr**. Sample hr values and their expected output:
+// - When **hr = 1**, output should be "Good Evening!";
+// - When **hr = 3**, output should be "Hey, Night Owl!";
+// - When **hr = 6**, output should be  "Good Morning!";
+// - When **hr = 15**, output should be  "Good Afternoon!";
+// - When **hr = 20**, output should be  "Good Evening!";
+
+//  END 02.04 LAB
+
+//  SEE: 02.04 LAB SOLUTION 
+        
+    </script>
+    
+</body>
+</html>

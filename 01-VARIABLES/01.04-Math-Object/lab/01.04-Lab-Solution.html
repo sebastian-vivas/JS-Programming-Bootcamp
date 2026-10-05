@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lab 01.04</title>
+    
+    <link href="../../../css/basic-pg-console.log.css" rel="stylesheet">
+
+    <style>
+
+        body { 
+            background-color: #555;
+            color: #555;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 10px;
+            border: 3px solid #999;
+            width: 650px;
+            height: 65vh;
+            background-color: #ccc;
+        }
+
+        img {
+            width: 90px; 
+            float:left; 
+            padding-right:30px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+
+        <div>
+            <!-- <img src="../../../images/lab-testtube.jpg"> -->
+            <h1>JS Lab 01.04 <br> Math Object</h1>   
+            <h3>See script tag in this html file for lab assignment.</h3>   
+            <h3>As you work, check the console for output and <span style="color:red">red error messages</span>. 
+            <h3>Please check Lab Solution file only after giving the Lab your best effort!</h3>
+        </div>
+
+    </div>
+    
+    <script>
+
+    // LAB 01.04 Solution
+
+    // 1. Set y value to get console output that matches the comment:
+
+    let x = 10;
+    let y = 0;
+
+    y = -20;
+    console.log(x + y); // -10
+
+    y = 20;
+    console.log(x - y); // -10
+
+    y = .25;
+    console.log(x * y); // 2.5
+
+    y = 4;
+    console.log(x / y); // 2.5
+
+    y = 5;
+    console.log(x ** y); // 100000
+
+    y = 3;
+    console.log(x % y); // 1
+
+    // 2. Calculate the total cost, as shown in the comment:
+    let unitCost = 50;
+    let numUnits = 12;
+    let shipping = 25;
+    let totalCost = unitCost * numUnits + shipping;
+    console.log(totalCost); // 625
+
+    // 3. Calculate the values of z in terms of w, x and y to get the value shown in the comment:
+    let w = 10;
+    x = 12;
+    y = 15;
+    let z;
+
+    z = x * y + w;
+    console.log(z); // 190
+
+    z = w * x - y;
+    console.log(z); // 105
+
+    z = x * y / w;
+    console.log(z); // 18
+
+    z = w + x - y;
+    console.log(z); // 8
+
+    z = w * x / y;
+    console.log(z); // 7
+
+    // 4. Use the Math Object to generate a random integer between 0-19;
+    let r = Math.floor(Math.random() * 20);
+    console.log(r);
+
+    // 5. Use the Math Object to generate a random integer between 26-50;
+    let ran = Math.ceil(Math.random() * 25 + 25);
+    console.log(ran);
+
+    // 6. Use the Math Object to get the maximum value from these numbers: 3, 5, 21, 7, 1, 3, 12, 6
+    let m = Math.max(3, 5, 21, 7, 1, 3, 12, 6);
+    console.log(m); // 21
+
+    // 7. Use the Math Object to get the square root of 81.
+    let sqR = Math.sqrt(81);
+    console.log(sqR); // 9
+
+    // 8. Use a Math Object method that takes 9.99 as its argument and returns 9.
+    let fl = Math.floor(9.99);
+    console.log(fl); // 9
+
+    // 9. Supply values for x, y and expon so that the console.log output matches the comment next to it:
+
+    x = 14;
+    y = 2;
+    let expon = x ** y;
+    console.log(expon); // 196
+
+    // 10. The area of a circle equals PI times the radius squared: A = π r². 
+    // Given a circle of radius 4, use the Math Object to find the area of the circle.
+
+    // area = π r²
+    let area = Math.PI * Math.pow(4, 2);
+    console.log(area); // 50.26548245743669
+
+    // OR use the ** operator:
+    area = Math.PI * (4 ** 2);
+    console.log(area); // 50.26548245743669
+
+    // 11. The hypotenuse (c) of a right triangle is obtained by the formula: a²+b²=c², where a and b are the other two sides. 
+    // Using the Math Object, find the hypotenuse of a triangle, where a=5 and b=12.
+
+    // a²+b²=c²
+    let a = 5;
+    let b = 12;
+    // let c2 represent the square of the hypotenuse
+    let c2 = (5 ** 2) + (12 ** 2);
+    let c = Math.sqrt(c2);
+    console.log(c);
+
+    // 12. Generate two random floats, r1 and r2, in the 0-10 range. Round each of them off to 5 decimal places. Add them together.
+    let r1 = Math.random() * 10;
+    let r2 =Math.random() * 10;
+
+    // round to 3 decimal places
+    r1 = r1.toFixed(3);
+    r2 = r2.toFixed(3);
+    console.log(r1); // 9.202
+    console.log(r2); // 6.845
+
+    // HINTS: You cannot do addition with strings. 
+
+    let sum = r1 + r2; // 9.2026.845 -- Oops! String concatenation!
+
+    // Try again, first converting r1 and r2 back to numbers:
+    r1 = Number(r1);
+    r2 = Number(r2);
+
+    sum = r1 + r2;
+    console.log(sum); // 16.047
+
+    // 13. Given this baseball player and his statistics: 
+    /*
+
+    Player:     Vladimir Guerrero Jr.
+    Team:       Toronto Blue Jays
+    Year:       2021
+
+    Stats:
+    PA      AB      R       H       2B      3B      HR      RBI
+    698     604	    123	    188	    29	    1	    48	    111
+
+    Calculate Guerrero's Slugging Percentage (SLG), which equals total bases (TB) divided by at bats (AB): SLG = TB / AB. 
+    It is customary for SLG to be rounded to 3 decimal places.
+
+    Total bases is the sum of a player's hits (H), plus their doubles (2B), plus twice their triples (3B), plus three times their home runs (HR): 
+    TB = H + 2B + (3B * 2) + (HR * 3)
+    */
+
+    // We don't need all the stats, but make vars of the ones we do need:
+    let AB = 604;
+    let H = 188;
+    let _2B = 29;
+    let _3B = 1;
+    let HR = 48;
+
+    // Calculate Total Bases (TB):
+    let TB = H + _2B + (_3B * 2) + (HR * 3);
+    console.log(TB); // 363
+
+    // Calculate Slugging Percentage (SLG):
+    let SLG = TB / AB;
+    console.log(SLG); // 0.6009933774834437
+
+    // Round to 3 decimal places
+    SLG = SLG.toFixed(3);
+    console.log(SLG); // 0.601
+
+    /*
+    EXAMPLE / HINT (but only if you need it)
+
+    A player has 100 hits, including 17 2B, 4 3B and 19 HR, they have 182 TB: 100 + 17 + (4 * 2) + (19 * 3) = 100 + 17 + 8 + 57 = 182
+
+    It took the player 350 AB to amass these 182 TB. Therefore, they have a slugging percentage of 0.520: 100 / 350 = 0.52
+
+    END Lab 01.04 SOLUTION
+
+    Next: Lesson 02.01
+    */
+
+    </script>
+    
+</body>
+</html>

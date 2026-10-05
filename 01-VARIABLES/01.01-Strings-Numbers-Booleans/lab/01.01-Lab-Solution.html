@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Lab 01.01 Solution</title>
+
+    <link href="../../../css/basic-pg-console.log.css" rel="stylesheet" />
+
+    <style>
+      body {
+        background-color: #555;
+        color: #555;
+        font-family: sans-serif;
+        text-align: center;
+      }
+
+      .container {
+        margin: 50px auto;
+        padding: 30px;
+        border-radius: 10px;
+        border: 3px solid #999;
+        width: 650px;
+        height: 65vh;
+        background-color: #ccc;
+      }
+
+      img {
+        width: 90px;
+        float: left;
+        padding-right: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <!-- <img src="../../../images/lab-testtube.jpg"> -->
+        <h1>
+          JS Lab 01.01 <br />
+          Variables: <br />Strings, Numbers, Concatenation
+        </h1>
+
+        <h3>
+          Please check your Lab work against this Solution file <br />only after
+          having given the Lab your best effort!
+        </h3>
+      </div>
+    </div>
+
+    <script>
+      // 01.01 Lab Solution
+
+      // 1. type: number
+      // let admission Fee = $10;
+      // Note: Value cannot be '$10', since that is a string.
+      let admissionFee = 10;
+      console.log("1:", "admissionFee", admissionFee, typeof admissionFee);
+      // 1. admissionFee 10 number
+
+      // 2. type: string
+      // let #1sportsCar = "Porsche";
+      let sportsCar1 = "sportsCar1";
+      console.log("2:", "sportsCar1", sportsCar1, typeof sportsCar1);
+      // 2. sportsCar1 sportsCar1 string
+
+      // 3. type: boolean
+      // let is Online = FALSE;
+      let isOnline = false;
+      // console.log('3:', 'isOnline', isOnline, typeof(isOnline));
+      // 3. isOnline false boolean
+
+      // 4. type: number
+      // let %done = 22.5%;
+      let pctDone = 0.225;
+      // Note: 22.5% percent as a decimal is .225 -- not 22.5
+      console.log("4:", "pctDone", pctDone, typeof pctDone);
+      // 4. pctDone .225 number
+
+      // 5. type: undefined
+      let password = "&123b45d";
+      password;
+      // Note: a variable without a value assigned to it is undefined
+      console.log("5:", "password", password, typeof password);
+      // 5. password undefined undefined
+
+      // 6. type: string
+      // let 26miles = marathon;
+      let miles26 = "marathon";
+      // Note: underscore is legal character in variable name, so _26miles
+      // is ok, but by convention _ prefix is for object property names
+      console.log("6:", "miles26", miles26, typeof miles26);
+      // 6. $miles26 marathon string
+
+      // 7. type: string
+      // let $100000Bar = candy bar;
+      let $100000Bar = "candy bar";
+      // Note: No ERROR on name: $ is allowed
+      console.log("7:", "$100000Bar", $100000Bar, typeof $100000Bar);
+      // 7. $100000Bar candy bar string
+
+      // 8. type: number
+      // let firstPrize = 7,500;
+      let firstPrize = 7500;
+      // Note: numeric values cannot have commas
+      console.log("8:", "firstPrize", firstPrize, typeof firstPrize);
+      // 8. firstPrize 7500 number
+
+      // 9. type: boolean
+      // let i_Won! = True;
+      let iWon = true;
+      // Note: i_Won is legal, although iWon (camel-case) is better
+      // Note: boolean values (true, false) are all-lowercase
+      console.log("9:", "iWon", iWon, typeof iWon);
+      // 9. iWon true boolean
+
+      // 10. type: undefined
+      // let myVar = 'Hola';
+      let myVar;
+      // Note: a variable without a value assigned to it is undefined
+      console.log("10:", "myVar", myVar, typeof myVar);
+      // 10. myVar undefined undefined
+
+      // END 01.01 LAB SOLUTION
+
+      // Next: Lesson 01.02
+    </script>
+  </body>
+</html>

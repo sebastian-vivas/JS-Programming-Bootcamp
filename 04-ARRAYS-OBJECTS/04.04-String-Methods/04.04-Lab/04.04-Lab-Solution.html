@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Lab 04.02 Solution</title>
+
+    <style>
+      body {
+        background-color: #555;
+        color: #555;
+        font-family: sans-serif;
+        text-align: center;
+      }
+
+      .container {
+        margin: 50px auto;
+        padding: 30px;
+        border-radius: 10px;
+        border: 3px solid #999;
+        width: 650px;
+        height: 65vh;
+        background-color: #ccc;
+      }
+
+      img {
+        width: 90px;
+        float: left;
+        padding-right: 30px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Lab 04.04 Solution</h1>
+      <h2>Working with String Methods</h2>
+    </div>
+
+    <script>
+      // 04.04 Lab Solution
+
+      // Given this array of vegetables:
+      const veggies = ["Cucumber", "Tomato", "Kale"];
+
+      // 1. Use the replace() method and array items to log the expected message to the console:
+      let msg1 = "Have you ever ordered the Sandwich?";
+      msg1 = msg1.replace("Sandwich", veggies[0] + " Sandwich");
+      console.log(msg1); // Have you ever ordered the Cucumber Sandwich?
+
+      // 2. Use the replace() method and array items to log the expected message to the console:
+      let msg2 = 'The "T" in "BLT" stands for "Terminator."';
+      msg2 = msg2.replace("Terminator", veggies[1]);
+      console.log(msg2); // The "T" in "BLT" stands for "Tomato."
+
+      // 3. Use the replace() method and array items to log the expected message to the console:
+      let msg3 = "Bunny goes to Yale University.";
+      msg3 = msg3.replace("Yale", veggies[2]);
+      console.log(msg3); // Bunny goes to Kale University."
+
+      // Given this array of fruits and vegetables:
+      const words = [
+        "Avocado",
+        "Broccoli",
+        "Cauliflower",
+        "Dragonfruit",
+        "Eggplant",
+      ];
+
+      // 4. Use the includes() method and if-else logic to check if the word starts with a consonant or a vowel
+      // If the word is "Avocado", log: Avocado starts with "A", which is a vowel.
+      // If the word is "Broccoli", log: Broccoli starts with "B", which is a consonant.
+      let r = Math.floor(Math.random() * words.length);
+      let word = words[r];
+      let firstChar = word[0];
+      console.log("firstChar", firstChar);
+      let vowels = "aeiouAEIOU";
+      if (vowels.includes(firstChar)) {
+        console.log(`${word} starts with "${firstChar}", a vowel.`);
+      } else {
+        console.log(`${word} starts with "${firstChar}", a consonant.`);
+      }
+
+      // REFACTOR: Since the if-else console logs differ only in one word: vowel / consonant,
+      // better would be to have a variable "consonant" that the if statements sets to "vowel"
+      // and then concat that "consonant" or "vowel" vvariable into the output:
+      // Try it again:
+      let r = Math.floor(Math.random() * words.length);
+      let consonantOrVowel = "consonant";
+      word = words[r];
+      firstChar = word[0];
+      if (vowels.includes(firstChar)) {
+        consonantOrVowel = "vowel";
+      }
+      console.log(
+        `${word} starts with "${firstChar}", which is a ${consonantOrVowel}`
+      );
+
+      // Given this file name:
+      let fileName = "Mets-Lead-Off-Game-By-Hitting-Three-Straight-Homers.html";
+
+      // 5. Turn the file name into a news headline, with all words capitalized:
+      // Expected result:
+      // Mets Lead Off Game By Hitting Three Straight Homers
+      let wordsArr = fileName.split("-");
+      console.log(wordsArr); // ['Mets', 'Lead', 'Off', 'Game', 'By', 'Hitting' .. etc.]
+      let headline = wordsArr.join(" ");
+      // remove the file extension, but don't assume '.html' -- detect the dot
+      // and remove everything from the dot to the end of the string
+      let indexOfDot = headline.indexOf(".");
+      // use slice() method to get everything from the beginning of the string to
+      // to dot (but not including the dot)
+      headline = headline.slice(0, indexOfDot);
+      console.log(headline);
+
+      // END: Lab 04.04
+      // NEXT: Lesson 05.01
+    </script>
+  </body>
+</html>

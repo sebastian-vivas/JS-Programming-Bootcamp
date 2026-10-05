@@ -1,0 +1,112 @@
+// COFFEESHOP CHALKBOARD
+// CHALKBOARD
+
+// “TIMELY GREETING”
+timely - greeting - A.js; // A means you need to code from scratch
+timely - greeting - B.js; // B comes with a code “kickstart”
+timely - greeting - C.js; // C means Completed version (JS solution file)
+timely - greeting - D.html; // D means “DOM” (JS in context of a webpage)
+
+// A : PROMPT:
+
+// Timely Greeting :
+// get the current Date-Time from the user’s computer and output a “Timely Greeting” (Good Morning! Good Afternoon! Good Evening!) based on the
+// current hour, which is an integer from 0-23.
+// Skillset: string variables, Date object, if-else logic
+
+// PROCEDURE:
+// Declare a variable called greeting and set it equal to an empty string.
+// Declare a variable called date by instantiating a new Date object.
+// This requires using the Constructor Method and new Keyword.
+// The new keyword creates a new instance (object) of the Class it is called on:
+// var date = new Date(); // date is an object of the Date class
+// Our date has access to all the methods and properties of the Date Class.
+// We can get the current year, month, day, date, hour, minute and second, but all we want is the hour, which we obtain by calling the getHours() method on our date object. The method returns the current hour as an integer from 0-23.
+// We store that return value in a new variable:
+var hour = date.getHours();
+// if-else if-else logic:
+// Next, evaluate hour using if-else logic, and set the value of greeting:
+// if hour is less than 12 (noon), the greeting is “Good Morning”;
+// if hour is between 12-18 (noon-6 pm), greeting is “Good Afternoon”;
+// if hour is 18 or greater (6pm or later), greeting = “Good Evening”;
+// log the greeting to the console.
+// extra challenge –
+// Does anyone actually say “Good morning!” at one o’clock in the morning?!?
+// Tweak the if-else logic so that during the wee hours from midnight-3am,
+// the greeting is “Hey, Night Owl!” (Okay, okay – no one says that either!)
+// Beginning at 4am (and going til noon), the greeting is “Good morning!”
+
+// Open a file to get started:
+// If you would like to t code this from scratch, based on the above prompt, open:
+// timely-greeting-A.js // A means you need to code from scratch
+// If you would like a kickstart, partially pre-done file, open this one:
+// timely-greeting-B.js // B comes with a code “kickstart”
+// You can always start with A and switch over to B if necessary.
+
+// C : The Solution JS File:
+// When you are done or have taken it as far as you can, open:
+// timely-greeting-C.js // C means final version (solution file)
+// To see an example of the code being implemented on a web page, open the .html page in a browser:
+
+// D : The HTML Webpage using the JS:
+// timely-greeting-D.html // D means “DOM” (this page shows the JS in context on a webpage)
+
+// make an array of the days of the week
+var daysOfWeek = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+// get the day of the week as a string by looking it up in the dayOfWeek array
+
+setInterval(() => {
+  var dateTime = new Date();
+
+  var day = dateTime.getDay();
+  var dayStr = daysOfWeek[day];
+
+  var chalkboard = document.getElementById("chalkboard");
+  var greeting = "Good ";
+
+  var hour = dateTime.getHours(); // 0-23
+  var minu = dateTime.getMinutes(); // 0-59
+  var secs = dateTime.getSeconds(); // 0-59
+
+  if (hour == 0) {
+    greeting = "<br>Hello, Burner<br>of Midnight Oil !";
+  } else if (hour < 4) {
+    greeting = "<br>Hey, Night Owl!";
+  } else if (hour < 12) {
+    greeting += "Morning!";
+  } else if (hour < 17) {
+    greeting += "Afternoon!";
+  } else {
+    greeting += "Evening!";
+  }
+
+  var amPm = "am";
+  if (hour > 12) {
+    amPm = "pm";
+    hour -= 12; // reduce mil. time 13 to 1, etc.
+  }
+
+  if (hour == 0) {
+    hour = 12;
+  }
+
+  if (minu < 10) {
+    minu = "0" + minu; // add a leading zero
+  }
+
+  if (secs < 10) {
+    secs = "0" + secs; // add a leading zero
+  }
+
+  // on page load output to the chalkboard
+  // the day of the week and the current hour
+  chalkboard.innerHTML = `${dayStr}<br>is Coffee Day! ${greeting}<br>the time is <br>${hour}:${minu}:${secs} ${amPm}`;
+}, 1000); // run this every 2 sec

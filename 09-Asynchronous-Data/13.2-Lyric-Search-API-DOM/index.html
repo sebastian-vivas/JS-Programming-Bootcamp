@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+
+    <header>
+      <h1>Awesome Lyric search App</h1>
+    </header>
+
+    <section id="input-search">
+      <div>
+        <form id="form">
+          <h2>Search by Artist and Title</h2>
+          <div id="message-div"></div>
+          <div class="input-div">
+            <span>Artist: </span>
+            <input
+              type="text"
+              name="artist"
+              id="search-artist-id"
+              class="search-input"
+            />
+            <span id="input-artist-error-span" class="error-span"></span>
+          </div>
+
+          <div class="input-div">
+            <span>Title: </span>
+            <input
+              type="text"
+              name="title"
+              id="search-title-id"
+              class="search-input"
+            />
+            <span id="input-artist-rror-span" class="error-span"></span>
+          </div>
+          <button>Search</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="show-lyrics-div">
+      <span class="error-span" id="lyrics-error-span"></span>
+      <h2 id="show-lyrics-h2" class="show-lyrics-h2">Lyrics:</h2>
+      <div id="show-lyrics"></div>
+    </section>
+
+    <script src="13.2-Lyric-Search-API-DOM.js"></script>
+  </body>
+</html>

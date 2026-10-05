@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lab 01.02</title>
+    
+    <link href="../../../css/basic-pg-console.log.css" rel="stylesheet">
+
+    <style>
+
+        /* for use with files that are just springboards to check the console for JS output */
+        body { 
+            background-color: #555;
+            color: #555;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 10px;
+            border: 3px solid #999;
+            width: 650px;
+            height: 65vh;
+            background-color: #ccc;
+        }
+
+        img {
+            width: 90px; 
+            float:left; 
+            padding-right:30px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+
+        <div>
+            <img src="../../../images/lab-testtube.jpg">
+            <h1>JS Lab 01.03 <br> NaN, Number() <br> null, not defined</h1>   
+
+            <h3>See script tag in this html file for lab assignment.</h3>
+
+                
+            <h3>As you work, check the console for output and <span style="color:red">red error messages</span>. 
+       
+            <h3>Please check Lab Solution file only after giving the Lab your best effort!</h3>
+        </div>
+
+    </div>
+    
+    <script>
+
+/* ********  LAB 01.02 - LAB *********** */
+
+// Assign values to the provided variables and use typeof() to log output that matches the comment:
+
+// example:
+var flavor; 
+console.log('?'); // vanilla string
+
+// solution:
+var flavor = 'vanilla';
+console.log(flavor, typeof(flavor));
+
+// on your own:
+var msg; 
+console.log('?'); // Hello World! string
+
+var total; 
+console.log('?'); // 314 number
+
+var isFresh; 
+console.log('?'); // true boolean
+
+var price; 
+console.log('?'); // price: $ 29.95 number
+
+var player1; 
+console.log('?'); // player1: undefined 'undefined'
+
+var restaurantBill = 80;
+var groupon = '$10';
+var pleasePay;
+console.log(pleasePay); // NaN 'number'
+
+// Use the Number() method, as needed, to get the expected values:
+
+// example:
+var x = '55';
+var y = 6;
+var z;
+console.log(z); // expected: 330
+
+// solution:
+var x = '55';
+var y = 6;
+var z = Number(x) * y;
+console.log(z); // 330
+
+// on your own:
+var x = '55';
+var y = '33';
+var z;
+console.log(z); // expected: 22
+
+var x = 55;
+var y = '33';
+var z;
+console.log(z); // expected: 88
+
+var x = '55';
+var y = 5;
+var z;
+console.log(z); // expected: 11
+
+var x = 55;
+var y = '44';
+var z;
+console.log(z); // expected: 5544
+
+// message 1: Sally lives in New York City.
+let msg1;
+let name;
+let city;
+console.log(msg1);
+
+// message 2: Freddy went to France for 6 months.
+let msg2;
+let fName;
+let country;
+let months;
+console.log(msg2);
+
+// message 3: My Bunny had a baby carrot for breakfast.
+let msg3;
+let pet;
+let veg;
+let meal;
+console.log(msg3);
+
+/* ********** END 01.02 LAB ************** */
+
+/* ******* SEE 01.02 LAB SOLUTION ********* */
+        
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,164 @@
+body {
+  background-color: #bbb;
+  text-align: center;
+  margin: 0;
+  font-family: sans-serif;
+  /* font-family: 'Schoolbell', cursive; */
+  font-size: 1em;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.container {
+  /* max-width: 1200px; */
+  min-height: 100vh;
+  border: 2 solid #555;
+  /* margin: 0 auto; */
+  /* padding: 20px; */
+  background-color: #222;
+  /* position: fixed; */
+  /* left: 0;
+    right: 0; */
+}
+
+header {
+  /* display: flex; */
+  background-color: #222;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  margin: 0px;
+  color: #eee;
+  /* border-radius: 10px; */
+}
+
+.divvy {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  max-width: 140px;
+  height: 180px;
+  border: 2px solid #555;
+  margin: 10px;
+  padding: 10px;
+  background-color: #fff;
+}
+
+select {
+  margin: 5px;
+  padding: 5px;
+  font-size: 1.1em;
+  width: 180px;
+}
+
+h1 {
+  display: inline-block;
+  font-size: 1.15em;
+  max-width: 50%;
+  margin-top: 10px;
+  margin-right: 25px;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #555;
+  border: 2 solid #222;
+  padding: 15px;
+  min-height: 75vh;
+  margin: 0 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.divvy img {
+  max-width: 90%;
+  max-height: 70%;
+  padding-bottom: 10px;
+}
+
+input {
+  justify-self: flex-end;
+  max-width: 95%;
+  font-size: 0.8em;
+  padding: 3px 5px;
+  margin: 8px 5px;
+}
+
+/* the div that holds all the lettered buttons */
+.buttons-box {
+  height: 60px;
+  padding: 5px;
+  margin: 10px;
+  margin-top: 25px;
+  display: inline-block;
+  color: #eee;
+}
+
+/* the individual buttons */
+.letter-btn {
+  text-transform: uppercase;
+  height: 32px;
+  width: 32px;
+  font-size: 1em;
+  font-weight: bold;
+  margin: 0px 8px 15px 5px;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+/* assigned to an input box after the user types in it */
+
+.spell-check {
+  font-weight: bold;
+  color: white;
+}
+
+.correct {
+  background-color: green;
+}
+
+.wrong {
+  background-color: red;
+}
+
+/* smaller screens */
+@media (max-width: 600px) {
+  body {
+    background-color: lightblue;
+    font-size: 0.8em;
+  }
+
+  header {
+    margin-left: 5px;
+    width: 98%;
+    background-color: #111;
+    border-radius: 0;
+  }
+
+  /* .letter-buttons { */
+  /* height: 25px;
+        width: 25px;
+        margin: 5px 3px 3px 3px; */
+  /* } */
+
+  /* h1 { */
+  /* display: inline-block;
+        font-size: 1.15em;
+        width: 50%;
+        margin-top: 5px; */
+  /* } */
+
+  .word-box {
+    margin: 0 5px;
+    padding: 10px;
+    border-radius: 0;
+  }
+
+  main {
+    padding: 20px;
+  }
+}

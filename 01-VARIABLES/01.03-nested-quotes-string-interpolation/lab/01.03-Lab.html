@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lab 01.03</title>
+    
+    <link href="../../../css/basic-pg-console.log.css" rel="stylesheet">
+
+    <style>
+
+        body { 
+            background-color: #555;
+            color: #555;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 10px;
+            border: 3px solid #999;
+            width: 650px;
+            height: 65vh;
+            background-color: #ccc;
+        }
+
+        img {
+            width: 90px; 
+            float:left; 
+            padding-right:30px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+
+        <div>
+            <img src="../../../images/lab-testtube.jpg">
+            <h1>JS Lab 01.03 <br> Nested Quotes <br> String Interpolation</h1>   
+            <h3>See script tag in this html file for lab assignment.</h3>
+            <h3>As you work, check the console for output and <span style="color:red">red error messages</span>. 
+            <h3>Please check Lab Solution file only after giving the Lab your best effort!</h3>
+        </div>
+
+    </div>
+    
+    <script>
+
+  // ********** Lab 01.03 Start ***********
+
+        // Debug these strings by mixing-and-matching quotes.
+
+        /* 
+        var cereal = 'Cap'n Crunch';
+        console.log(cereal);  // Cap'n Crunch
+
+        var questi = ""Who's there?" she asked.";
+        console.log(questi); // "Who's there?" she asked.
+
+        // Debug these strings by escaping quotes with backslash:
+
+        var phrase = 'Isn't that amazing!';
+        console.log(phrase); // 'Isn't that amazing!
+
+        var quote = ""Show me the money!" is a famous movie line.";
+        console.log(quote); // "Show me the money!" is a famous movie line.
+        */
+                
+        // Use string interpolation to produce the messages in the comments:
+
+        var pet = 'dog';
+        var name = 'Fido';
+        var toy = 'frisbee';
+        var msg;
+        console.log(msg); // My dog Fido’s favorite toy is a frisbee.
+
+        var animal;
+        var continent;
+        var msg;
+        console.log(msg); // The kangaroo is native to Australia.
+
+        // This one requires you to combine math operations, which you practiced earlier, with string interpolation:
+        var joint = "BOB'S DINER";
+        var food = 30;
+        var bev = 20;
+        var subTotal = food + bev;
+        var taxRate = 0.08; // 8%
+        var tipPct = 0.2; // 20%;
+        var tax;
+        var tip;
+        var grandTotal;
+        var guestCheck;
+        console.log(guestCheck);
+        /*
+        BOB'S DINER 
+        GUEST CHECK:
+        Food: $30
+        Beverage: $20
+        Sub-Total: $50
+        Tax: $4
+        Tip: $10
+        TOTAL: $64
+        THANK YOU!
+        */
+ 
+// END LAB 01.03
+
+// SEE LAB 01.03 SOLUTON 
+
+    </script>
+    
+</body>
+</html>

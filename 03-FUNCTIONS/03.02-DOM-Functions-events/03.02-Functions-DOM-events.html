@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>03.02 Functions & DOM Events</title>
+
+	<link href="css/funcs.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<div class="container">
+
+		<h1>Lesson 03.02 - Events calling functions: 'click' and 'change'</h1>
+
+		<button id="btn-1">greet world</button>
+
+		<!-- <select id="fruit-menu">
+			<option value="choose">Pick a Fruit:</option>
+			<option value="apple">Apple</option>
+			<option value="banana">Banana</option>
+			<option value="blueberry">Blueberry</option>
+			<option value="cherry">Cherry</option>
+			<option value="grape">Grape</option>
+			<option value="lemon">Lemon</option>
+			<option value="lime">Lime</option>
+			<option value="mango">Mango</option>
+			<option value="orange">Orange</option>
+			<option value="peach">Peach</option>
+			<option value="plum">Plum</option>
+			<option value="raspberry">Raspberry</option>
+			<option value="strawberry">Strawberry</option>
+		</select> -->
+
+		<select id="fruit-menu">
+			<option value="choose">Pick a Fruit:</option>
+			<option value="apple" data-food="apple sauce">Apple</option>
+			<option value="banana" data-food="banana bread">Banana</option>
+			<option value="blueberry" data-food="blueberry muffins">Blueberry</option>
+			<option value="cherry" data-food="cherry pie">Cherry</option>
+			<option value="grape" data-food="grape jelly">Grape</option>
+			<option value="lemon" data-food="lemonade">Lemon</option>
+			<option value="lime" data-food="key lime pie">Lime</option>
+			<option value="mango" data-food="mango smoothies">Mango</option>
+			<option value="orange" data-food="orange marmalade">Orange</option>
+			<option value="peach" data-food="peach cobbler">Peach</option>
+			<option value="plum" data-food="plum pudding">Plum</option>
+			<option value="raspberry" data-food="raspberry jam">Raspberry</option>
+			<option value="strawberry" data-food="strawberry shortcake">Strawberry</option>
+		</select>
+
+		<div>
+			<input type="text" id="firstName" placeholder="First Name">
+			<input type="text" id="lastName" 
+			placeholder="Last Name">
+			<button id="btn-2">greet by name</button>
+		</div>
+
+		<div>
+			<!-- step="2" means stepper goes up by 2 each time-->
+			<input type="number" id="num1-box" step="2" placeholder="Enter a Number">
+			<!-- min="10" max="100" sets min and max values of the input -->
+			<input type="number" id="num2-box" min="10" max="100" placeholder="Enter a Number">
+			<button id="btn-3">add numbers</button>
+		</div>
+
+		<h2 id="output">output</h2>
+
+	</div>
+
+	<!-- START JS : -->
+	<!-- <script src="js/03.02-Functions-DOM-events-START.js"></script> -->
+
+	<!-- PROG JS : -->
+	<script src="js/03.02-Functions-DOM-events-PROG.js"></script>
+
+    <!-- FINAL JS : -->
+    <!-- <script src="js/03.02-Functions-DOM-events-FINAL.js"></script> -->
+</script>
+	
+</body>
+</html>

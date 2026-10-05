@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Lab 04.01</title>
+
+    <style>
+      body {
+        background-color: #555;
+        color: #555;
+        font-family: sans-serif;
+        text-align: center;
+      }
+
+      .container {
+        margin: 50px auto;
+        padding: 30px;
+        border-radius: 10px;
+        border: 3px solid #999;
+        width: 650px;
+        height: 65vh;
+        background-color: #ccc;
+      }
+
+      img {
+        width: 90px;
+        float: left;
+        padding-right: 30px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Lab 04.01</h1>
+      <h2>Arrays</h2>
+    </div>
+
+    <script>
+      // 04.01 Lab Exercises
+
+      // NOTE: 'log' means console.log()
+
+      // 1. Declare an array called gems and give it three items: 'diamond', 'sapphire' and 'ruby'.
+
+      const gems = ["diamond", "sapphire", "ruby"];
+
+      // 2. Log the entire array and also the first item.
+      console.log(gems);
+      console.log(gems[0]);
+
+      // 3. Add 'emerald' to the end of the array, using the index of the new item
+      gems[3] = "emerald";
+      console.log(gems);
+
+      // 4. Use an array method to add 'amethyst' to the end of the array.
+      gems.push("amethyst");
+      console.log(gems);
+
+      // 5. Use an array method to sort the array.
+      gems.sort();
+      console.log(gems);
+
+      // 6. Log the length (number of items of the array). Should be 5.
+      console.log("gems array length:", gems.length);
+
+      // 7. Use length-1 to get the last item in the array. Save it to a variable and log it.
+      let lastGem = gems[gems.length - 1];
+      console.log(lastGem);
+
+      // 8. Use an array method to remove the last item from the array. Save it to a new variable.
+      // HINT: the popped item should be 'sapphire'.
+      poppedLastGem = gems.pop();
+      console.log("poppedLastGem:", poppedLastGem);
+      console.log(gems);
+
+      // 9. Given these 12 months: Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec.
+      // Make a 2D array called months, containing the 12 items,
+      // divided into 4 sub-arrays or 3 items each,
+      // so: Jan, Feb, Mar would be the first array.
+      // Log the months that start with 'J' and 'M'.
+      const months = [
+        ["Jan", "Feb", "Mar"],
+        ["Apr", "May", "Jun"],
+        ["Jul", "Aug", "Sep"],
+        ["Oct", "Nov", "Dec"],
+      ];
+      console.log(months[0][0]);
+      console.log(months[0][2]);
+      console.log(months[1][1]);
+      console.log(months[1][2]);
+      console.log(months[2][0]);
+
+      // 10. Make four arrays called winter, spring, summer and autumn,
+      // each of which contains three items which it gets assigned as individual items
+      // of the months array. Log the middle item of each array.
+      const winter = months[0]; // ['Jan', 'Feb', 'Mar']
+      const spring = months[1]; // ['Apr', 'May', 'Jun']
+      const summer = months[2]; // ['Jul', 'Aug', 'Sep']
+      const autumn = months[3]; // ['Oct', 'Nov', 'Dec']
+
+      console.log(winter[1], spring[1], summer[1], autumn[1]);
+      /*
+        SEE 04.01 Lab Exercise Solutions
+
+        */
+    </script>
+  </body>
+</html>
