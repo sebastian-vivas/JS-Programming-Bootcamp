@@ -53,7 +53,12 @@
     let hr = dateTime.getHours();
     let greeting = 'Good ';
     
-    if(hr < 12) {
+
+    if (hr < 2) {
+        greeting += "Evening!";
+    } else if (hr < 4) {
+        greeting += "Hey, Night Owl!"
+    } else if (hr < 12) {
         greeting += "Morning!";
     } else if(hr < 18) {
         greeting += " Afternoon!";

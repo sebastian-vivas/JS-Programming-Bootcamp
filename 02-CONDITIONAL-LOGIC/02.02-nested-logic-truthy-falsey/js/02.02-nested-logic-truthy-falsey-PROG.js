@@ -8,30 +8,30 @@
 let weather = "cloudy";
 let windy = true;
 
-// if (weather == "rainy") {
-//     console.log('Go to the museum!');
-// } else if (weather == "sunny") {
-//     console.log('Go to the beach!');
-// } else {
-//     console.log('Go to the park!');
-// }
+if (weather == "rainy") {
+    console.log('Go to the museum!');
+} else if (weather == "sunny") {
+    console.log('Go to the beach!');
+} else {
+    console.log('Go to the park!');
+}
 
 // 2. Wind conditions do not apply if we are at the museum. So, move on to the "else if", and add this nested logic that specifies what to do at the beach::
-// if (weather == "rainy") {
-//   console.log('Go to the museum!');
-// } else if (weather == "sunny") {
-//   console.log('Go to the beach!');
-//   if (windy == true) {
-//       console.log('Go windsurfing!');
-//   } else {
-//       console.log('Play frisbee!');
-//   }
-// } else {
-//   console.log('Go to the park!');
-// }
+if (weather == "rainy") {
+  console.log('Go to the museum!');
+} else if (weather == "sunny") {
+    console.log('Go to the beach!');
+    if (windy == true) {
+      console.log('Go windsurfing!');
+    } else {
+      console.log('Play frisbee!');
+    }
+} else {
+  console.log('Go to the park!');
+}
 // 3. Moving on to the last part, specify what to do at the park:
 
-weather = "rainy";
+weather = "cloudy";
 windy = false;
 
 if (weather == "rainy") {
@@ -130,7 +130,7 @@ console.log("zip", zip, typeof zip);
 if (zip) {
   console.log("empty strings are truthy");
 } else {
-  console.log("empty strings are is falsey"); // runs
+  console.log("empty strings are falsey"); // runs
 }
 // zip  string
 

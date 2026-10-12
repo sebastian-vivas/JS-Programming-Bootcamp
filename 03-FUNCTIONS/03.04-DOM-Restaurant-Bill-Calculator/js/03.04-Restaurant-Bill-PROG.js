@@ -8,40 +8,16 @@
 */
 
 // 1. Get the form objects:
-let foodBox = document.getElementById("food");
-let bevBox = document.getElementById("bev");
-let taxMenu = document.getElementById("tax-menu");
-let tipMenu = document.getElementById("tip-menu");
-let calcBtn = document.getElementById("calc-btn");
-let response = document.getElementById("response");
+let food;
 
 // 2. Have the button listen for a click and call the calcBill function when it is clicked:
-calcBtn.addEventListener("click", calcBill);
+
+let calcBtn;
 
 // 3. Write the function. First thing it does is prevent the form from doing a default page reload:
 
 function calcBill(event) {
-  event.preventDefault();
-  let foodTot = Number(foodBox.value);
-  let bevTot = Number(bevBox.value);
-  let tipPct = Number(tipMenu.value);
-  let taxPct = Number(taxMenu.value);
-  let subTot = foodTot + bevTot;
-  let taxTot = (subTot * taxPct) / 100;
-  let tipTot = (subTot * tipPct) / 100;
-  let total = subTot + taxTot + tipTot;
-  tipTot = tipTot.toFixed(2);
-  taxTot = taxTot.toFixed(2);
-  total = total.toFixed(2);
-  let bill = `Sub-total:  $ ${subTot}
-    Tax Rate:   ${taxPct} %
-    Tip Pct:    ${tipPct} %
-    Tip:        ${tipTot} %
-    Tax:        $ ${taxTot}
-    TOTAL:      $ ${total}
-    Thank you!`;
-  // return bill;
-  response.textContent = bill;
+  // do stuff
 } // function end
 
 /* 4. Next, get the values from the form. 
@@ -66,6 +42,10 @@ function calcBill(event) {
 // // Add the tax and tip to the subtotal and round off the tip and total to two decimal places with toFixed(2);
 
 // // Concatenate a bill message and output it;
+
+// Part 1: fix the NaN bug. If someone leaves the tip menu on 'Gratuity %', use 15 percent. If they leave the tax menu on 'Sales Tax %', use 8.875 percent. Hint: check the menu's value before you convert it.
+
+// Part 2: add a 'Number of people' box to the HTML, and add a line to the bill showing what each person pays. If the box is empty, just skip that line. 
 
 // END LESSON 03.04
 

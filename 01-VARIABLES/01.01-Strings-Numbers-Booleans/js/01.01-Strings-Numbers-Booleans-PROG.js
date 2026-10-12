@@ -8,27 +8,28 @@
 
 // 1. Declare a variable with `var` and assign it a string in double quotes:
 
-var pet;
+var pet = "cat";
 
 // 2. Change the value to another string, this time in single quotes:
 
-pet;
+pet = "dog";
 console.log(pet); // dog
 
 // One difference between `var` and `let` is that a `var` can be redeclared.
 
 // 3. Redeclare `pet`:
 
-var pet;
+var pet = "bunny";
 console.log(pet); // bunny (no error)
 
 // A variable declared with `let` cannot be redeclared--it throws an error:
 
 // 4. Declare a variable with `let` and then try to redeclare it:
 
-let petSound;
+let petSound = "Woof!";
 console.log(petSound); // Woof!
 // let petSound = "Grrr!";
+petSound = "Grrr!"
 // Error: Identifier 'petSound' has already been declared
 
 // To change the value of an existing variable, don't redeclare it. Just set it equal to something else:
@@ -42,7 +43,7 @@ console.log(petSound); // Grrr!
 
 // 6. Output both variables in one console.log:
 
-console.log(pet, petSound); // dog  Grrr!
+console.log("pet:", pet, "petSound:", petSound); // dog  Grrr!
 
 // 7. For added clarity, you can label the console output:
 
@@ -55,14 +56,20 @@ console.log("pet", pet, "petSound", petSound);
 
 // 8. Declare an integer, a float, and a 4-digit number:
 
-let price1; // integer
+let price1 = 35; // integer
+let price2 = 3.5;
+let price3 = 3500;
+console.log(price1, price2, price3);
 
 // Naturally, number variables can be used to do math. You can save the result to a variable or just directly console log the answer.
 
 // 9. Take these basic math operators for a spin: `+`, `-`, `*`, `/`.
 
-let totalPrice;
+let totalPrice = price1 + price2 + price3;
 console.log(totalPrice); // 3538.5
+console.log(price1 - price2);
+console.log(price1 * price2);
+console.log(price1 / price2);
 
 // boolean variables
 
@@ -71,15 +78,21 @@ console.log(totalPrice); // 3538.5
 // and to let you know at a glance that this is a boolean.
 
 // 10. Declare a boolean variable with a value of *true*:
-let isOnline;
+let isOnline = true;
+let online = true;
+console.log(isOnline, online);
 
 // Changing the value of  boolean is known as *toggling* or *flipping* it. This can be done by direct assignment, or by setting the variable equal to itself with `!` in front.
 
 // 11. "Flip" the boolean from true to false, and then make it true again by putting `!` in front of it:
 
-isOnline;
+isOnline = false;
 
 console.log("isOnline", isOnline); // true
+
+isOnline = !isOnline;
+
+console.log("isOnline", isOnline)
 
 // undefined
 
@@ -88,25 +101,38 @@ console.log("isOnline", isOnline); // true
 // 12. Declare a variable, but don't assign it a value:
 
 let player1;
+console.log("player1", player1);
 // player1 undefined
 
 // typeof() method
 
 // 13. Declare variables of each of the four major "primitive" types: string, number, boolean and undefined. Then log the variable name, value and data type:
 
-let ketchup;
+let ketchup = "Heinz";
+console.log("ketchup", ketchup, typeof ketchup);
 
 // Multiple variables can be delared in one line with a single keyword.
 
+let varieties = 57;
+console.log("varieties", varieties, typeof(varieties));
+
+let fresh = true;
+console.log("fresh", fresh, typeof fresh);
+
+let total;
+console.log("total", total, typeof total);
+
 // 14. Declare three variables with just one instance of the `let` keyword:
 
-let x;
+let x = 1, y = 2, z = 3;
+console.log(x + y * z);
 
 // Such "one-liner" variable declarations are more common when the vars that are not to be assiged an initial value.
 
 // 15. Declare four variables with just one instance of the `let` keyword, leaving them all without an initial value, so *undefined*:
 
-let day;
+let day, date, month, year;
+console.log(day, date, month, year);
 
 // undefined undefined undefined undefined
 
@@ -114,7 +140,8 @@ let day;
 
 // 16. Declare a string and a number, assigning them starter values of "" and 0, respectively:
 
-let grade;
+let grade = "";
+let score = 0;
 
 // If you declare a variable and set its value equal to an existing
 // variable, the copy becomes its own independent entity, which means
@@ -123,8 +150,10 @@ let grade;
 
 // 17. Declare a variable, and set it equal to score from the previous step:
 
-let myScore;
+let myScore = score;
+myScore = 98;
 console.log(myScore); // 98
+console.log(score); // 0
 
 // END Lesson 01.01
 

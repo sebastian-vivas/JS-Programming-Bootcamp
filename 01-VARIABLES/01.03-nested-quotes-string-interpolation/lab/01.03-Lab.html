@@ -56,47 +56,55 @@
   // ********** Lab 01.03 Start ***********
 
         // Debug these strings by mixing-and-matching quotes.
-
-        /* 
-        var cereal = 'Cap'n Crunch';
+        let cereal = 'Cap"n Crunch';
         console.log(cereal);  // Cap'n Crunch
 
-        var questi = ""Who's there?" she asked.";
-        console.log(questi); // "Who's there?" she asked.
+        // let question = "\"Who\'s there?\" she asked.";
+        let question = '"Who\'s there?" she asked.';
+        console.log(question); // "Who's there?" she asked.
 
         // Debug these strings by escaping quotes with backslash:
 
-        var phrase = 'Isn't that amazing!';
+        let phrase = 'Isn\'t that amazing!';
         console.log(phrase); // 'Isn't that amazing!
 
-        var quote = ""Show me the money!" is a famous movie line.";
+        let quote = '"Show me the money!" is a famous movie line.';
         console.log(quote); // "Show me the money!" is a famous movie line.
-        */
+
                 
         // Use string interpolation to produce the messages in the comments:
 
-        var pet = 'dog';
-        var name = 'Fido';
-        var toy = 'frisbee';
-        var msg;
-        console.log(msg); // My dog Fido’s favorite toy is a frisbee.
+        let pet = 'dog';
+        let petName = 'Fido';
+        let toy = 'frisbee';
+        let msg1 = `My ${pet} ${petName}'s favorite toy is a ${toy}`;
+        console.log(msg1); // My dog Fido’s favorite toy is a frisbee.
 
-        var animal;
-        var continent;
-        var msg;
-        console.log(msg); // The kangaroo is native to Australia.
+        let animal = 'kangaroo';
+        let continent = 'Australia';
+        let msg2 = `The ${animal} is native to ${continent}`;
+        console.log(msg2); // The kangaroo is native to Australia.
 
         // This one requires you to combine math operations, which you practiced earlier, with string interpolation:
-        var joint = "BOB'S DINER";
-        var food = 30;
-        var bev = 20;
-        var subTotal = food + bev;
-        var taxRate = 0.08; // 8%
-        var tipPct = 0.2; // 20%;
-        var tax;
-        var tip;
-        var grandTotal;
-        var guestCheck;
+        let joint = "BOB'S DINER";
+        let food = 30;
+        let bev = 20;
+        let subTotal = food + bev;
+        let taxRate = 0.08; // 8%
+        let tipPct = 0.2; // 20%;
+        let tax = subTotal * taxRate;
+        let tip = subTotal * tipPct;
+        let grandTotal = subTotal + tax + tip;
+        let guestCheck = `
+            ${joint}
+            GUEST CHECK:
+            Food: $${food}
+            Beverage: $${bev}
+            Sub-Total: $${subTotal}
+            Tax: $${tax}
+            Tip: $${tip}
+            TOTAL: $${grandTotal}
+            THANK YOU!`;
         console.log(guestCheck);
         /*
         BOB'S DINER 

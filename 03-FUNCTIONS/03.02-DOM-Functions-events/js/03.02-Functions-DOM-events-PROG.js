@@ -4,6 +4,8 @@
 
 // 1. Add this function, and call it from the script (no button yet):
 
+
+
 // greetWorld();
 
 // 2. Comment out the function call since a button click is taking over.
@@ -13,6 +15,17 @@
 // 4. Also get the `<h2 id="output">output</h2>` tag to hold the output. Save it to a variable so that we can output our function results there:
 
 // 5. Log `btn1` and `object` as well as and some properties:
+
+
+
+// console.log(btn1);
+// console.log(btn1.id);
+// console.log(btn1.textContent);
+// console.log(output);
+// console.log(output.id);
+// console.log(output.textContent);
+
+
 
 // 6. Tell the `btn1` object to "listen" for a click upon itself and to call `greetWorld` when the click occurs.
 
@@ -72,21 +85,9 @@
 // options array
 // The select object has an options property, which is an array.
 // We will get into arrays in Unit 4, but for now, just know that an array is a variable that holds more than one item at a time. The items are stored by number, called index. We can look up an array item by index. When a menu choice is made, the object selectedIndex property is set with a number that corresponds to the option chosen. We can use that number to look up the selected option from the options array. Once we have that option, can access any `data-` attribute via the `dataset` property. We have an attribute data-food, the value of which is `dataset.food`
-const fruitMenu = document.getElementById("fruit-menu");
-fruitMenu.addEventListener("change", pickFruit);
 
 // Refactor the pickFruit function to include the food:
-function pickFruit() {
-  let fruit = fruitMenu.value.toUpperCase();
-  let indx = fruitMenu.selectedIndex; // the index num of choice
-  let optn = fruitMenu.options[indx];
-  let food = optn.dataset.food;
-  output.textContent = `Your chosen fruit is: ${fruit}! 
-    Do you like ${food}?`;
-  console.log("food datatype is: ", typeof food);
-  // typeof food should return "string"
-  // types: "function "string" "object" "boolen" "number" "undefined"
-}
+
 // 25. Save the we numeric index of the selected item to a variable. This simplifies the next line.
 
 // 26. Get the selected option by its index in the options array. Save that to a variable `opt`:

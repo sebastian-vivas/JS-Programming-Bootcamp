@@ -13,32 +13,34 @@ Mathematical operators:
 
 // 1. Declare two number variables, and use them for some simple calculations:
 
-let n1;
-let n2;
+let n1 = 10;
+let n2 = 3;
 
 console.log(n1 + n2); // 13
+console.log(n1 ** n2); // 1000
+console.log(n1 % n2); // 1
 
 // 2. Change the values of `n1` and `n2`, and do some more calculations, saving the results to variables:
 
-n1;
-n2;
+n1 = 6;
+n2 = 2;
 
-let sum;
+let sum = n1 + n2;
 console.log(sum); // 8
 
-let diff;
+let diff = n1 - n2;
 console.log(diff); // 4
 
-let prod;
+let prod = n1 * n2;
 console.log(prod); // 12
 
-let quot;
+let quot = n1 / n2;
 console.log(quot); // 3
 
-let expo;
+let expo = n1 ** n2;
 console.log(expo); // 36
 
-let modul;
+let modul = n1 % n2;
 console.log(modul); // 0
 
 /* Order of Operations of Mathematical Expressions
@@ -51,14 +53,14 @@ console.log(modul); // 0
 
 // 3. Declare a third number variable, and do some math that shows how parentheses can affect the result:
 
-n1;
-n2;
-let n3;
+n1 = 4;
+n2 = 5;
+let n3 = 8;
 
-let tot; // 4 + 40
+let tot = n1 + n2 * n3; // 4 + 40
 console.log(tot); // 44
 
-tot; // 9 * 8
+tot = (n1 + n2) * n3; // 9 * 8
 console.log(tot); // 72
 
 // JS has a built-in Math Object, which comes with many useful methods:
@@ -67,25 +69,25 @@ console.log(tot); // 72
 
 // 4. Generate a random number and log it:
 
-let r;
+let r = Math.random();
 console.log(r); // 0.7492906781140873
 
 // Math.round() rounds off its argument:
 
 // 5. Round off a number:
-let x;
+let x = Math.round(2.5);
 console.log(x); // 3
 
 // Math.floor() rounds down its argument:
 
 // 6. Round down a number:
-let y;
+let y = Math.floor(2.999);
 console.log(y); // 2
 
 // Math.ceil() rounds up its argument:
 
 // 7. Round up a number:
-let z;
+let z = Math.ceil(2.001);
 console.log(z); // 3
 
 // getting a random number greater than 1
@@ -93,13 +95,13 @@ console.log(z); // 3
 // Math.random() generates a random float from 0-1, so to get a larger number, just multiply by some value:
 
 // 8. Generate a random number and multiply it by 100:
-let rando;
+let rando = Math.random() * 100;
 console.log(rando); // some number between 0-100
 
 // To get an integer, round, floor or ceil the random value:
 
 // 9. Round down a random number multiplied by 100:
-let randInt;
+let randInt = Math.floor(Math.random() * 100);
 console.log(randInt); // some integer between 0-99
 
 // getting a random integer in a range
@@ -108,43 +110,43 @@ console.log(randInt); // some integer between 0-99
 
 // 10. Round down a random number multiplied by 50 and then add 50 to get a number in the 50-100 range:
 
-let rand;
+let rand = Math.ceil(Math.random() * 50 + 50);
 console.log(rand); // some value between 50-100
 
 // Math.max() returns the greatest of the multiple values passed to it:
 
 // 11. Find the max of a set of numbers:
-let maxi;
+let maxi = Math.max(3, 6, 8, 2, 12, 4, 10);
 console.log(maxi); // 12
 
 // Math.min() returns the smallest of the multiple values passed to it:
 
 // 12. Find the minimum of a set of numbers:
-let mini;
+let mini = Math.min(3, 6, 8, 2, 14, 4, 10);
 console.log(mini); // 2
 
 // Math.pow() takes two arguments: a number and a power to raise it to:
 
 // 13. Raise a number to a power using the pow() method:
-let pwr;
+let pwr = Math.pow(5, 4);
 console.log(pwr); // 625 (5x5x5x5)
 
 // However, as we have seen, the double-asterisk ** operator does the same thing as Math.pow():
 
 // 14. Raise a number to a power using the ** operator:
-let powr;
+let powr = 5 ** 4;
 console.log(powr); // 625 (5x5x5x5)
 
 // Math.abs() returns the absolute value of its argument, meaning it just makes any negative value positive:
 
 // 15. Use Math.abs() to get the absolute value of a negative number:
-let absolut;
+let absolut = Math.abs(-7);
 console.log(absolut); // 7
 
 // Math.sqrt() returns the square root of its argument:
 
 // 16. Use Math.sqrt() to get the square root of a number:
-let sqRt;
+let sqRt = Math.sqrt(81);
 console.log(sqRt); // 9
 
 // Math.PI returns the famous constant. If you save it, it should be to a const with uppercase name:
@@ -158,12 +160,12 @@ console.log(PI); // 3.141592653589793
 
 // 18. Round PI to 2 digits. The rounded value is actually a string.
 
-let pi2;
+let pi2 = PI.toFixed(2);
 console.log(pi2); // 3.14
 
 // 19. Try doing addition with `pi2`. The plus sign does concatenation, because it's working with a string:
 
-console.log(pi2 + pi2); // 3.143.14
+console.log(pi2 + " " + pi2); // 3.143.14
 
 // arithmetic shorthand operators: +=  -=  *=  /=**
 
@@ -184,18 +186,21 @@ x = x * 3; // multiply
 console.log(x); // 210
 
 x *= 2; // multiply
+x = x * 2;
 console.log(x); // 420
 
 x = x - 80; // subtract
 console.log(x); // 340
 
 x -= 100; // subtract
+x = x - 100;
 console.log(x); // 240
 
 x = x / 4; // divide
 console.log(x); // 60
 
 x /= 3; // divide
+x = x / 3;
 console.log(x); // 20
 
 // END LESSON 01.05
