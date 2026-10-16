@@ -1,0 +1,9 @@
+// 6. Add a tiers property with an array of three objects, [{ minQty: 1, unitPrice: 75 }, { minQty: 5, unitPrice: 60 }, { minQty: 10, unitPrice: 50 }]. Then write getUnitPriceFor(qty), which returns the unit price of the highest tier the quantity qualifies for. Check the highest tier first. Test with quantities 1, 5, 9, 10, and 25. Expected: 75, 60, 60, 50, 50.
+
+// 7. Write sellChecked(qty), a wrapper around sell that rejects anything that isn't a whole number of at least 1, with the message "Quantity must be a whole number of at least 1." Use Number.isInteger(qty), which returns false for strings. A "2" from a form field gets rejected even though it looks like a number. Test with "2", 0, 1.5, and 2. Only the last one should sell.
+
+// 8. Add stock (3) and soldOut (false) to the product. Then write sell(qty). If the product is sold out, return "Sorry, the Wonder Widget is sold out." If qty is more than the stock, return "Only 3 left. Please order 3 or fewer." (with the real number) and change nothing. Otherwise, subtract qty from the stock and return "Sold 2. 1 left in stock." If the stock reaches 0, set soldOut to true.
+
+// 9. Write cloneAs(newName), which returns a new object with the same buzzwords and company but a different prodName. Copy the buzzwords array with .slice(). Push "tiny" into the copy's buzzwords and check the original. Then do the same thing without .slice().
+
+// 10. Write report(), which returns a line like Wonder Widget | 3 in stock | MSRP $40 | 10+ units: $50 each. Show SOLD OUT in place of the stock count when soldOut is true. Use getUnitPriceFor(10) from step 6 for the bulk price, so the report reuses earlier work.
