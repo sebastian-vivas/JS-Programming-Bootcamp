@@ -38,7 +38,7 @@ Arrays are variables that can hold more than one value at a time. Arrays have a 
 
 // ['peach', 'banana', 'cherry', 'mango']
 
-// mutating an array (changing its datatype
+// mutating an array (changing its datatype)
 
 // One downside of `let` for arrays is that it does not protect the data type. You could inadvertently change the array to a string or any other datatype. Use `const` to prevent such an accident from occurring.
 

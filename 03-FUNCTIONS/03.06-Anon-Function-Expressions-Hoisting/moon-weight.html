@@ -1,0 +1,37 @@
+<!-- Make a new file called moon-weight.html, anywhere you like. Build a page with a heading, 
+a number box for your Earth weight, a button, and a spot for the answer. When you click 
+the button, show your weight on the Moon.
+
+1. Use a calcMoonWeight(earthWeight) function that returns the moon weight (one-sixth).
+
+function calcMoonWeight(earthWeight) {
+      return earthWeight / 6;
+}
+
+2. The button uses an inline anonymous function in its listener.
+
+3. If the box is empty, show "Please enter your weight." instead of an answer. 
+
+4. Show the answer rounded to one decimal place: "On the Moon, you would weigh 30.0 lbs."
+
+5. Bonus: pressing Enter in the box also calculates. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My moon weight</title>
+</head>
+<body>
+  <h1>Get your weight on the mooooooooon.</h1>
+  <form action="">
+    <input type="number" id="earthWeight" placeholder="Enter a number" required>
+    <button id="btn-box">Calculate Weight</button>
+  </form>
+  
+  <h2 id="result"></h2>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

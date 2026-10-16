@@ -9,17 +9,6 @@
 
 // 1. Declare a function and call it before and after:
 
-// console.log(fruit);
-let fruit = "kiwi";
-console.log(fruit);
-
-console.log(sayHello("Joe"));
-
-function sayHello(name) {
-  return `Hello, ${name}`;
-}
-
-console.log(sayHello("Joe"));
 // Hello, Joe!
 
 // Hoisting does not work for variables, however. To access a variable, it must have already been declared:
@@ -36,14 +25,7 @@ console.log(`Do you like ${froot}?`);
 
 // A function expression is a variable with a function for a value. As a variable, it doesn't get hoisted. A function expression must be defined *before* it can be called.
 
-// console.log(welcomeUser('John1'));
-
 // 3. Write a function expression:
-const welcomeUser = function (user) {
-  return `Welcome, ${user}`;
-};
-
-console.log(welcomeUser("Jane2"));
 
 // 4. Call the function above itself. We get an error:
 
@@ -76,6 +58,7 @@ function(x, y) {
 // An anonymous function may be set equal to the event property of an object. When that event happens, the function runs. First let's just look at a function that is called by a listener:
 
 // 6. Get the elements where the function output goes:
+
 const output1 = document.getElementById("output-1");
 const output2 = document.getElementById("output-2");
 const output3 = document.getElementById("output-3");
@@ -84,25 +67,16 @@ const output5 = document.getElementById("output-5");
 const output6 = document.getElementById("output-6");
 
 // 7. Get the BTN 1 button and have it call a function when clicked:
-const btn1 = document.getElementById("btn-1");
-btn1.addEventListener("click", doSomething);
 
 // 8. Define the function:
-function doSomething() {
-  output1.textContent = "You clicked btn1!";
-}
 
 // 9. Reload the page and click the button. We should get the message: *You clicked the button! That did something!*
 
 // This review of addEventListener is just to set up the contrast between calling function with a name and running an anonymous function on click.
 
 // 10. Get BTN 2:
-const btn2 = document.getElementById("btn-2");
 
 // onclick property
-btn2.onclick = function () {
-  output2.textContent = "You clicked the btn2!";
-};
 
 // Events that can be called on objects co-exist as properties. The 'click' event has its counterpart in the **onclick** property, which is called on the button and set equal to a function. When the click takes place, the function runs:
 
@@ -115,16 +89,12 @@ btn2.onclick = function () {
 // Anonymous functions do not have to come to the right of an equal sign. An anonymous function can be written inline, such as inside the addEventListener method.
 
 // 13. Get BTN 3 and have it listen for a click. Instead of calling a function by name, as we usually do, just run an inline anonymous function, right there on the spot:
-const btn3 = document.getElementById("btn-3");
 
 // Let's try one more example of a listener that calls a function by name vs. a listener that runs an anonymous function, inline:
 
 // 14. Have the body listen for the 'load' event, which fires when the body, is fully loaded, and to call a function when the loading of the page is complete:
 
 // 15. Refactor the listener to run an inline anonymous function instead of calling a function by name:
-btn3.addEventListener("click", function () {
-  output3.textContent = "You clicked btn3!";
-});
 
 // 16. Do away with the listener altogether, and instead use the onload event property to run the anonymous function:
 

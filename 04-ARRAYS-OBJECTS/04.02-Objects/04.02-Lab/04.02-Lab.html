@@ -39,6 +39,8 @@
       <h2>Making an Object with Properties and a Method</h2>
     </div>
 
+    <script src="main.js"></script>
+
     <script>
       // 04.02 Lab Solution
 
@@ -49,21 +51,22 @@
                 For the values, refer to the method's return value
 
             product object's properties: key (datatype)
-                - prodName (string)
+                - prodName (string) -> Wonder Widget
                 - patentNum (number)
                 - assemblyRequired (boolean)
                 - buzzwords (array with 3 items)
-                - company (object with 2 properties: name, country
+                - company (object with 2 properties: name, country -> "U.S.A"
                 - promote (method) the returns a string concatenated
                 from ALL the other properties and array items:
                 promote method returns:
+                (use "this.property", not the product object)
                 "Announcing Doo-Dad Incorporated's newest high-tech, labor-saving, 
                 water-resistant Wonder Widget! Made in U.S.A. Patent number: 7654321.
                 Some assembly required."
-                HINT: Use if-else logic in the method to concatnate or not based on the boolean
+                HINT: Use if-else logic in the method to concatnate or not based on the boolean (only include if assemblyRequired is true)
         */
 
-      const product = {};
+      // const product = {};
 
       /*
         2. Log the following properties of the object:
@@ -72,18 +75,16 @@
                 - the first item in the buzzwords array
                 - the last item in buzzwords, accessed via the array length
                 - the company name and country as: "All Doo-Dad, Inc. products are made in U.S.A."
-                - the promote method: 
-                Get Doo-Dad Inc.'s new high-tech, labor-saving, water-resistant Wonder Widget! 
-                Made in U.S.A. Patent number: 7654321. Some assembly required.
+                - the promote method
         */
 
-      console.log(product); // {} (click arrow to open and see all properties)
-      console.log(product); // Assembly Required: true
-      console.log(product); // high-tech
-      console.log(product); // water-resistant
-      console.log(product); // All Doo-Dad, Inc. products are made in U.S.A.
-      console.log(product); // Get Doo-Dad Inc.'s new high-tech, labor-saving, water-resistant Wonder Widget!
-      // Made in U.S.A. Patent number: 7654321. Some assembly required.
+      // console.log(product); // {} (click arrow to open and see all properties)
+      // console.log(product); // Assembly Required: true
+      // console.log(product); // high-tech
+      // console.log(product); // water-resistant
+      // console.log(product); // All Doo-Dad, Inc. products are made in U.S.A.
+      // console.log(product); // Get Doo-Dad Inc.'s new high-tech, labor-saving, water-resistant Wonder Widget!
+      // // Made in U.S.A. Patent number: 7654321. Some assembly required.
 
       /*
         3. Add four new properties outside of the object. In other words, do not add
@@ -125,11 +126,11 @@
             - log the promote method to see the changes.
         */
 
-      product.promote = function () {
-        // your code
-      };
+      // product.promote = function () {
+      //   // your code
+      // };
 
-      console.log(product.promote());
+      // console.log(product.promote());
       // Get Doo-Dad Inc.'s new high-tech, labor-saving, water-resistant, shock-resistant Wonder Widget!
       // Made in U.S.A. Patent number: 7654321. Some assembly required.
       // *** MSRP: $75 *** ON SALE! $50% OFF *** NOW ONLY: $37.50;

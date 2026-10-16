@@ -5,20 +5,35 @@
 // it is instantiated (you declare a var of it) by using the new keyword
 
 // 1.  Instantiate an instance of the Date object.
-let dateTime;
+let dateTime = new Date();
+console.log(dateTime);
 
 // The individual time units are available by calling the Date object's many "get methods".
 
 // 2. Get the current hour, minute and second:
 
-let hour; // 0-23
+let hour = dateTime.getHours(); // 0-23
+console.log(hour);
+let minute = dateTime.getMinutes();
+console.log(minute);
+let second = dateTime.getSeconds();
+console.log(second);
 
 // 3 Concatenate the time in 00:00:00 format
-let timeIs; // 00:00:00
+let timeIs = `${hour}:${minute}:${second}`; // 00:00:00
+console.log(timeIs);
 
 // If minute or second is less than 10, you get wonky output, such as 1:2:3 instead of 1:02:03. To fix this, add leading zeros to minute and second, as needed. This is done with conditional logic.
 
 // 4. Add a leading 0 if minute and second is less than 10:
+
+if (minute < 10) {
+  minute = "0" + minute;
+}
+
+if (second < 10) {
+  second = "0" + second;
+}
 
 timeIs;
 
@@ -27,6 +42,10 @@ timeIs;
 // If an if-statement has only one line of code inside its curly braces, you can omit the curly braces altogether and put everything on the same line.
 
 // 5. Make these short if-statements even more concise by eliminating the curly braces:
+
+// if (minute < 10) minute = "0" + minute; 
+
+// if (second < 10) second = "0" + second; 
 
 console.log("timeIs w leading 0", timeIs); // 00:00:00
 
@@ -41,9 +60,17 @@ console.log("timeIs w leading 0", timeIs); // 00:00:00
 // - If hour is greater than 12, subtract 12.
 
 // 6. Declare a variable for storing "AM/PM", and then do the if-statements that set the variable. We can start with 'AM' and switch to PM once it gets to noon:
-let amOrPm;
+let amOrPm = "AM";
 
-timeIs;
+if (hour > 11) {
+  amOrPm = "PM";
+}
+
+if (hour > 12) {
+  hour -= 12;
+}
+
+timeIs = `${hour}:${minute}:${second} ${amOrPm}`;
 console.log("time is: ", timeIs);
 
 // "Timely Greeting"
@@ -54,42 +81,57 @@ console.log("time is: ", timeIs);
 // Start the greeting with "Good" and then use += to concatenate the "timely" part.
 
 // 7. Get a fresh hour, since our original hour may have already had 12 subtracted from it:
-let hr;
+let hr = dateTime.getHours();
+let greeting = "Good ";
 
+if (hr < 12) {
+  greeting += "Morning!";
+  // greeting = greeting + "Morning!";
+} else if (hr < 18) {
+  greeting += "Afternoon!";
+} else {
+  greeting += "Evening!";
+}
+
+console.log(greeting);
 // 8. Declare greeting with an initial value of 'Good', since all greetings start with that:
-let greeting;
 
 // 9. Do the logic for `hr < 12` (before noon):
 
 // 10. Add an `else if` for  `hr < 18` (before 6pm). Follow that with an `else` that runs when `hr` is NOT less than 18:
 
-console.log(greeting);
 
 // the Timely Greeting:
 
 // 11. Pair the greeting with the time of day in AM-PM format:
-let timelyGreeting;
+let timelyGreeting = `${greeting} The time is now: ${timeIs}`;
 
 console.log(timelyGreeting);
 
+const greetingTag = document.getElementById("greeting");
+greetingTag.textContent = timelyGreeting;
+
 // 12. Output the timelyGreeting to the web page. Start by getting the tag that will display the greeting:
+
 
 // 13. Set the `textContent` property of the tag object to our `timelyGreeting`:
 
 // The Date object's other time units can be used to concatenate and output today's date:
 
 // 14. Get today's date:
-let date;
+let date = dateTime.getDate();
+console.log("date", date);
 
 // 15. Get the month, which is returned as a number from 0-11 (Jan = 0, Dec = 11):
-let month;
+let month = dateTime.getMonth();
+console.log("month", month);
 
 // 16. Get the month as a string (January, February, etc). This gives us the flexibility to use the month as either a number or a day:
-let fullMonth;
+let fullMonth = dateTime.toLocaleString("default", { month: "long"});
 console.log("fullMonth", fullMonth);
 
 // 17. Get the day of the week, which is a number, with Sunday=0 and Saturday=6:
-let day;
+let day = dateTime.getDay();
 console.log("day", day);
 
 // 18. Make an array of the days of the week.
@@ -104,23 +146,26 @@ let daysArr = [
 ];
 
 // 19. Look up the first item in the array (Sunday) by its index (0):
-let Sun;
+let Sun = daysArr[0]; // "Sunday"
 console.log("Sun", Sun); // Sun Sunday
 
 // 20. Get the day of the week by looking it up index (number) in the array:
-let dayOfWeek;
+let dayOfWeek = daysArr[day]; // Wednesday
 console.log("dayOfWeek", dayOfWeek); // string
 
 // 21. Get the full 4-digit year:
-let fullYear;
+let fullYear = dateTime.getFullYear();
 
 // 22. Concatenate today's date as `Day, Month Date, Year`, using the non-numeric day and month, e.g. `Tuesday, May 17, 2022`:
 
-let todaysDate;
+let todaysDate = `${dayOfWeek}, ${fullMonth} ${date}, ${fullYear}`;
 
 console.log("todaysDate", todaysDate); // string
 
 // 23. Output today's date to its place on the web page:
+
+const todaysDateTag = document.getElementById("todays-date");
+todaysDateTag.textContent = todaysDateTag.textContent + todaysDate;
 
 // END LESSON 02.04
 

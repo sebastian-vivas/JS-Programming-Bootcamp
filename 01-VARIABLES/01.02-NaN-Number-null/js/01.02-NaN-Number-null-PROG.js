@@ -6,13 +6,22 @@
 
 // 1. Declare a variable with a "number-like string" for its value and try to do addition with it:
 
-let bill;
+let bill = 50;
+let tip = "10";
+let total = bill + tip;
+console.log(total);
+console.log(bill * tip);
+console.log(bill / tip);
+console.log(bill - tip);
 
 // Addition with "number-like strings" fails, as the + defaults to concatenation. But for other operations (subtraction, multiplication, division), the math is done correctly.
 
 // 2.Declare a "number-like string" and do division with it:
 
-let pizzas;
+let pizzas = "4";
+let people = 8;
+let pizzasPP = pizzas / people;
+console.log(pizzasPP);
 
 // NaN
 
@@ -20,7 +29,9 @@ let pizzas;
 
 // 3. Try to do math with a price with a dollar sign:
 
-let fullPrice; // NaN number
+let fullPrice = "$80"; // NaN number
+let halfPrice = fullPrice * 0.5;
+console.log("halfPrice", halfPrice);
 // NaN number
 
 // '$50' cannot be converted to a number, so the attempt to multiply fails.
@@ -33,6 +44,8 @@ let fullPrice; // NaN number
 
 console.log("pizzas", pizzas, typeof pizzas);
 // pizzas 4 string
+pizzas = Number(pizzas);
+console.log("pizzas", pizzas, typeof pizzas)
 
 // pizzas 4 number// pizzas 4 string
 
@@ -40,7 +53,9 @@ console.log("pizzas", pizzas, typeof pizzas);
 
 // 5. Try to convert "banana" to a number:
 
-let fruit;
+let fruit = "banana";
+let baNaNa = Number(fruit);
+console.log("baNaNa", baNaNa, typeof baNaNa);
 // baNaNa NaN number
 
 // Despite its name, `NaN` has a data type of number.
@@ -49,7 +64,12 @@ let fruit;
 
 // 6. Convert "15" to an actual number, so that it can be used for addition:
 
-bill;
+bill = 70;
+tip = "15";
+total = bill + tip;
+console.log(total);
+total = bill + Number(tip);
+console.log(total);
 
 // not defined vs undefined
 
@@ -59,6 +79,8 @@ bill;
 
 let island;
 console.log(island, typeof island); // undefined undefined
+island = "Bali";
+console.log(island, typeof island);
 // console.log(ixland); // error: ixland is not defined
 
 // null
@@ -67,7 +89,8 @@ console.log(island, typeof island); // undefined undefined
 
 // 8. Declare a variable, set it to null, and log it:
 
-let user;
+let user = null;
+console.log("user", user, typeof user);
 // user null object
 
 // string concatenation
@@ -76,34 +99,52 @@ let user;
 
 // 9. Concatenate a substring and a variable:
 
-let topic;
+let topic = "Javascript";
+let intro = "Let's learn " + topic + "!";
+console.log(intro);
 // Let's learn JavaScript!
 
 // 10. Concatenate a substring with two variables:
 
-let firstName;
+let firstName = "Brian";
+let lastName = "McClain";
+let greeting = "Hello, class! My name is " + firstName + " " + lastName + ".";
+console.log(greeting);
 // Hello, class! My name is Brian McClain.
 
 // Concatenation is often used for making multiple, similar strings.
 
 // 11. Concatenate an image file path with two variables and three substrings:
 
-let car;
+let car = "mazda";
+let doors = 2;
+let imgPath = "images/" + doors + "-door-" + car + ".jpg";
+console.log(imgPath);
 // images/2-door-mazda.jpg
 
 // 12. Change the value of `car` and `doors` to get a new image path:
 
-car; // images/4-door-chevy.jpg
+car = "chevy"; // images/4-door-chevy.jpg
+doors = 4;
+imgPath = "images/" + doors + "-door-" + car + ".jpg";
+console.log(imgPath)
 
 // A plus-sign performs concatenation rather than addition if the expression includes a string.
 
 // 13. Try to do add numbers where a dollar-sign is present. It reverts to string concatenation:
 
-let food; // $25158
+let food = 25; // $25158
+let bev = 15;
+tip = 8;
+let tot = "$" + food + bev + tip;
+console.log(tot);
 
 // 14. Remove the dollar sign, and run it again. This time the math works. To keep the dollar sign, put it back after the math is done:
 
-tot; // $48
+tot = food + bev + tip; // $48
+console.log(tot);
+tot = "$" + tot;
+console.log(tot);
 
 // changing a variables's data type
 
@@ -111,11 +152,20 @@ tot; // $48
 
 // 15. Change `pet` from a string to a number. This makes no sense:
 
-pet;
+let pet = "cat";
+pet = 123;
+console.log(pet);
 
 // 16. Change a three digit number to a 4-digit "PIN" by concatenating a leading zero. This resulting value is actually a string, but the reason for changing datatype does make sense:
 
-let num;
+let num = 582;
+let pin = "0" + num;
+console.log(pin, typeof pin);
 
 // END Lesson 01.02
 // NEXT: Lab 01.02, Lesson 01.03
+
+console.log(typeof null);
+
+
+

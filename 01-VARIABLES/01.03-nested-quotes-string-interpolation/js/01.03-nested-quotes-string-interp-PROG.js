@@ -9,7 +9,7 @@
 
 // 1. Declare a string in single quotes with an internal single quote (apostrophe). Check the console. There's an error:
 
-// let song = 'Won't Get Fooled Again';
+// let song = "Won't Get Fooled Again";
 // Unexpected identifier 't'
 
 // An unexpected identifier / unexpected token is a character that doesn't belong. The problem is, the apostrophe was mistaken for the end of the string, which makes 'Won' the entire string. Everything that comes next is 'unexpected'.
@@ -27,8 +27,8 @@ let song; // Won't Get Fooled Again
 
 // 3. Declare another variable with single quotes (apostrophes) nested inside single quotes, and then fix the error by escaping the apostrophes:
 
-// let song2 = 'Don't Stop Believin'';
-let song2;
+let song2 = 'Don\'t Stop Believin';
+
 
 // string interpolation
 
@@ -42,19 +42,22 @@ let song2;
 // 4. Do a string concatenation and then switch to string iterpolation:
 
 // string concatenation
-let firstName;
+let firstName = "Bob";
+let greeting = "Hi, " + firstName + "! How are you?";
 // Hi, Bob! How are you?
 
 // string iterpolation
-greeting;
+greeting = `Hi, ${firstName}! How are you?`;
 console.log(greeting); // Hi, Bob! How are you?
 
 // The advantage of string interpolation is more apparent when there are multiple variables and substrings.
 
 // 5. Declare a few more variables and make a longer, more complex concatenation:
-let petName;
+let petName = "Fluffy";
+let age = 3;
+let food = "tuna";
 
-let catGreeting;
+let catGreeting = "Meow! My name is " + petName + "! I am " + age + " years old. My favorite food is " + food + ".";
 
 console.log(catGreeting);
 // Meow! My name is Fluffy! I am 3 years old. My favorite food is tuna.
@@ -62,7 +65,7 @@ console.log(catGreeting);
 // This concatenation has four pairs of quotes and six plus signs, making it hard to read and write.
 
 // 6. Refactor the above as string interpolation:
-catGreeting;
+catGreeting = `Meow! My name is ${petName}! I am ${age} years old. My favorite food is ${food}.`;
 console.log(catGreeting);
 // Meow! My name is Fluffy! I am 3 years old. My favorite food is tuna.
 
@@ -72,13 +75,21 @@ console.log(catGreeting);
 
 // 7. Do a string concatenation with line breaks and tabs:
 
-let item1;
-let shoppingList;
+let item1 = "eggs";
+let item2 = "bread";
+let item3 = "milk";
+let shoppingList = "Shopping List:" + 
+    item1 + 
+    item2 + 
+    item3;
 console.log(shoppingList);
 // Shopping List:eggsbreadmilk
 
 // 8. Try it with string interpolation. Now, hitting enter gives you a line break in the output. Tab works too:
-shoppingList;
+shoppingList = `Shopping List: 
+    ${item1}
+    ${item2}
+    ${item3}`;
 console.log(shoppingList);
 /*
 Shopping List:
@@ -93,7 +104,7 @@ The line breaks and tabs can be done with regular concatenation:
 
 9. Try the shopping list with regular string concatenation, including the line breaks and tabs. It can be done, but is a pain to write, so feel free to copy-paste this one:
 */
-shoppingList3;
+shoppingList3 = "Shopping List: \n\t" + item1 + "\n\t" + item3;
 console.log(shoppingList);
 /*
 Shopping List:
@@ -112,14 +123,18 @@ Constants, by convention, have UPPERCASE names, but an all-caps name alone does 
 
 // 10. Declare an uppercase variable with `let`:
 
-let MOON_DIAMETER;
+let MOON_DIAMETER = 2159.1;
 console.log(MOON_DIAMETER); // 2159.1
+MOON_DIAMETER *= 10;
+console.log(MOON_DIAMETER);
 
 // To declare a true constant, use the `const` keyword. As its name implies, `const` makes true constants. If you try to change it, you get an error.
 
 // 11. Declare a true constant with `const`:
 
+const DOZEN = 12;
 // DOZEN = 13; // Error: Assignment to constant variable
+
 
 // 12. You cannot change a const, so it gives you an error. Comment it out:
 
@@ -131,7 +146,7 @@ console.log(MOON_DIAMETER); // 2159.1
 
 // 14. It gives an error, so comment it out:
 
-// var DOZEN = 13;
+var DOZEN = 13;
 
 // END Lesson 01.03
 

@@ -43,7 +43,7 @@ The fees associated with the checkboxes will, of course, only be charged if the 
 
 // 6. Get the checkboxes:
 
-// 7. Write if-statements to see if the checkboxex are checked and to increase the rent, accordingly:
+// 7. Write if-statements to see if the checkboxes are checked and to increase the rent, accordingly:
 
 // 8. Round off rent to an integer, and output it to the h3 tag:
 

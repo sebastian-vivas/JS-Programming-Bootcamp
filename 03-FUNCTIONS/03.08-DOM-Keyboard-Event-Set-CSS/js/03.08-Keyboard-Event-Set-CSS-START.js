@@ -24,7 +24,11 @@
 
 // 10. If the `f` key is pressed, toggle between serif and sans-serif font. Toggle the boolean each time, so that the behavior also toggles.
 
-// 11. If the `p` or `n` key is pressed, generate and output a random 4-digit pin number. If r is less than 4 digits, add a leading 0; output the random pin
+// 11. If the `p` or `n` key is pressed, generate and output a random 4-digit pin number. 
+
+// 42 Should show as 0042
+
+// TODO: If r is less than 4 digits, add a leading 0; output the random pin
 
 // 12. If the `ArrowLeft (37)` key is pressed, and if the space ship is not all the way to the left, move the ship 10px to the left:
 

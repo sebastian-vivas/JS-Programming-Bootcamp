@@ -5,7 +5,11 @@ const animals = {
     continent: "North America",
   },
 
-  anaconda: { class: "reptile", herbivore: false, continent: "South America" },
+  anaconda: {
+    class: "reptile",
+    herbivore: false,
+    continent: "South America"
+  },
 
   "Andean bear": {
     class: "mammal",

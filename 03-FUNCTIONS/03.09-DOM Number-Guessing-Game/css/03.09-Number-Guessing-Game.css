@@ -78,6 +78,10 @@ button {
   display: none;
 }
 
+#reset-btn {
+  display: none;
+}
+
 #feedback {
   display: none;
   width: 90%;
